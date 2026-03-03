@@ -1,11 +1,11 @@
 $version: "2"
 
-namespace shopping.inandout.catalog.stand
+namespace shopping.inandout.stand
 
 use shopping.inandout#AuditMetadata
 use shopping.inandout#PositiveDouble
 use shopping.inandout#UUID
-use shopping.inandout.catalog.article#ArticleSummary
+use shopping.inandout.article#ArticleSummary
 
 @mixin
 structure StandOutputMixin with [AuditMetadata] {

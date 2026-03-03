@@ -1,12 +1,12 @@
 $version: "2"
 
-namespace shopping.inandout.catalog.article
+namespace shopping.inandout.article
 
 use shopping.inandout#BrandIdMixin
 use shopping.inandout#PositiveDouble
 use shopping.inandout#UUID
-use shopping.inandout.catalog.product#CreateProductInput
-use shopping.inandout.catalog.product#Product
+use shopping.inandout.product#CreateProductInput
+use shopping.inandout.product#Product
 
 @references([
     {

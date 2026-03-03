@@ -1,6 +1,6 @@
 $version: "2"
 
-namespace shopping.inandout.outlet.store
+namespace shopping.inandout.store
 
 use shopping.inandout#Description
 use shopping.inandout#ImageUrl
@@ -14,7 +14,7 @@ use shopping.inandout#ResourceName
 use shopping.inandout#ResourceNotFoundError
 use shopping.inandout#UTCTimezone
 use shopping.inandout#UUID
-use shopping.inandout.outlet.brand#BrandSummary
+use shopping.inandout.brand#BrandSummary
 
 resource Store {
     identifiers: {

@@ -1,12 +1,12 @@
 $version: "2"
 
-namespace shopping.inandout.catalog.article
+namespace shopping.inandout.article
 
 use shopping.inandout#AuditMetadata
 use shopping.inandout#PositiveDouble
 use shopping.inandout#UUID
-use shopping.inandout.catalog.product#ProductSummary
-use shopping.inandout.outlet.brand#Brand
+use shopping.inandout.brand#Brand
+use shopping.inandout.product#ProductSummary
 
 @mixin
 structure ArticleMixin {

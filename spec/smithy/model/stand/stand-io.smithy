@@ -1,14 +1,14 @@
 $version: "2"
 
-namespace shopping.inandout.catalog.stand
+namespace shopping.inandout.stand
 
 use shopping.inandout#InputPagination
 use shopping.inandout#OutputPagination
 use shopping.inandout#PositiveDouble
 use shopping.inandout#StoreIdMixin
 use shopping.inandout#UUID
-use shopping.inandout.catalog.article#Article
-use shopping.inandout.catalog.article#CreateArticleInput
+use shopping.inandout.article#Article
+use shopping.inandout.article#CreateArticleInput
 
 @references([
     {
