@@ -1,6 +1,6 @@
 $version: "2"
 
-namespace shopping.inandout.outlet.store
+namespace shopping.inandout.store
 
 use shopping.inandout#AuditMetadata
 use shopping.inandout#DayType
@@ -13,7 +13,7 @@ use shopping.inandout#ResourceName
 use shopping.inandout#TimeRange
 use shopping.inandout#UTCTimezone
 use shopping.inandout#UUID
-use shopping.inandout.outlet.brand#BrandSummary
+use shopping.inandout.brand#BrandSummary
 
 map OperatingHoursMap {
     key: DayType

@@ -1,6 +1,6 @@
 $version: "2"
 
-namespace shopping.inandout.catalog.stand
+namespace shopping.inandout.stand
 
 use shopping.inandout#InternalServerError
 use shopping.inandout#InvalidInputError
@@ -8,7 +8,7 @@ use shopping.inandout#PositiveDouble
 use shopping.inandout#ResourceAlreadyExistsError
 use shopping.inandout#ResourceNotFoundError
 use shopping.inandout#UUID
-use shopping.inandout.catalog.article#ArticleSummary
+use shopping.inandout.article#ArticleSummary
 
 resource Stand {
     identifiers: {

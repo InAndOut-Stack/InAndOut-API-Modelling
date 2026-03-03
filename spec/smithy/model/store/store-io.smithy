@@ -1,6 +1,6 @@
 $version: "2"
 
-namespace shopping.inandout.outlet.store
+namespace shopping.inandout.store
 
 use shopping.inandout#InputPagination
 use shopping.inandout#Latitude
@@ -9,7 +9,7 @@ use shopping.inandout#NaturalNumber
 use shopping.inandout#OutputPagination
 use shopping.inandout#ResourceName
 use shopping.inandout#UUID
-use shopping.inandout.outlet.brand#Brand
+use shopping.inandout.brand#Brand
 
 // The creation of the brand is independent of the creation of the store.
 @references([

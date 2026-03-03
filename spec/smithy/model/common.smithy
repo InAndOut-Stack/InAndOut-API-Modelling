@@ -2,8 +2,8 @@ $version: "2"
 
 namespace shopping.inandout
 
-use shopping.inandout.outlet.brand#Brand
-use shopping.inandout.outlet.store#Store
+use shopping.inandout.brand#Brand
+use shopping.inandout.store#Store
 
 @pattern("^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
 @length(min: 32, max: 32)

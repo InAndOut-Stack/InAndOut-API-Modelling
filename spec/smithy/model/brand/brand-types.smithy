@@ -1,6 +1,6 @@
 $version: "2"
 
-namespace shopping.inandout.outlet.brand
+namespace shopping.inandout.brand
 
 use shopping.inandout#AuditMetadata
 use shopping.inandout#ImageUrl

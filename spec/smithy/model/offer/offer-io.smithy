@@ -1,6 +1,6 @@
 $version: "2"
 
-namespace shopping.inandout.marketing.offer
+namespace shopping.inandout.offer
 
 use shopping.inandout#InputPagination
 use shopping.inandout#OutputPagination

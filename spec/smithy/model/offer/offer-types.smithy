@@ -1,6 +1,6 @@
 $version: "2"
 
-namespace shopping.inandout.marketing.offer
+namespace shopping.inandout.offer
 
 use shopping.inandout#AuditMetadata
 use shopping.inandout#NaturalNumber
@@ -8,8 +8,8 @@ use shopping.inandout#Percentage
 use shopping.inandout#TimeRange
 use shopping.inandout#UUID
 use shopping.inandout#UUIDList
-use shopping.inandout.catalog.article#Article
-use shopping.inandout.outlet.store#Store
+use shopping.inandout.article#Article
+use shopping.inandout.store#Store
 
 list DependencyList {
     member: Dependency
