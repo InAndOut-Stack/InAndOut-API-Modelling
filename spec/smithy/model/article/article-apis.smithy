@@ -1,6 +1,6 @@
 $version: "2"
 
-namespace shopping.inandout.catalog.article
+namespace shopping.inandout.article
 
 use shopping.inandout#DeleteRestrictedError
 use shopping.inandout#InternalServerError
@@ -9,7 +9,7 @@ use shopping.inandout#PositiveDouble
 use shopping.inandout#ResourceAlreadyExistsError
 use shopping.inandout#ResourceNotFoundError
 use shopping.inandout#UUID
-use shopping.inandout.catalog.product#ProductSummary
+use shopping.inandout.product#ProductSummary
 
 resource Article {
     identifiers: {
