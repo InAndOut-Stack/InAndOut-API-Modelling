@@ -87,6 +87,14 @@ structure AuditMetadata {
 }
 
 @mixin
+resource AuditedResource {
+    properties: {
+        createdAt: Timestamp
+        updatedAt: Timestamp
+    }
+}
+
+@mixin
 @documentation("Parameters sent by the client to control pagination of the list results")
 structure InputPagination {
     @httpQuery("nextToken")
