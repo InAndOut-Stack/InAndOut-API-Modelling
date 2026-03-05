@@ -1,8 +1,8 @@
 $version: "2"
 
-namespace com.shopping.inandout.tsp
+namespace shopping.inandout.tsp
 
-use com.shopping.inandout#UUIDList
+use shopping.inandout#UUIDList
 
 structure FindTspSolutionInput {
     @required
@@ -11,5 +11,5 @@ structure FindTspSolutionInput {
 
 structure FindTspSolutionOutput {
     @required
-    solutionList: SolutionList
+    soltuionList: SoltuionList
 }

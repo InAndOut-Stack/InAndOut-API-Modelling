@@ -1,16 +1,16 @@
 $version: "2"
 
-namespace com.shopping.inandout.tsp
+namespace shopping.inandout.tsp
 
-use com.shopping.inandout#UUIDList
+use shopping.inandout#UUIDList
 
 @documentation("Optimal market route")
-structure Solution {
+structure Soltuion {
     @required
     @documentation("Ordered location list of the selected articles")
     nodeIdList: UUIDList
 }
 
-list SolutionList {
-    member: Solution
+list SoltuionList {
+    member: Soltuion
 }
