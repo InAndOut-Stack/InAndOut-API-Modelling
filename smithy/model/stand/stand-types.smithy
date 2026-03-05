@@ -1,40 +1,29 @@
 $version: "2"
 
-namespace com.shopping.inandout.stand
+namespace shopping.inandout.stand
 
-use com.shopping.inandout#OutputPagination
-use com.shopping.inandout#PositiveDouble
-use com.shopping.inandout#Price
-use com.shopping.inandout#UUID
+use shopping.inandout#AuditMetadata
+use shopping.inandout#PositiveDouble
+use shopping.inandout#UUID
+use shopping.inandout.article#ArticleSummary
 
-structure StandSummary {
-    @required
-    storeId: UUID
-
+@mixin
+structure StandOutputMixin with [AuditMetadata] {
     @required
     standId: UUID
 
     @required
-    articleId: UUID
-
-    @required
     edgeId: UUID
 
-    price: Price
-
+    @required
     sourceNodeDistance: PositiveDouble
 
     @required
-    createdAt: Timestamp
-
-    @required
-    updatedAt: Timestamp
+    articleSummary: ArticleSummary
 }
+
+structure StandSummary with [StandOutputMixin] {}
 
 list StandSummaryList {
     member: StandSummary
-}
-
-structure StandSummaries with [OutputPagination] {
-    tokens: StandSummaryList
 }

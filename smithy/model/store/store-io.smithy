@@ -1,39 +1,31 @@
 $version: "2"
 
-namespace com.shopping.inandout.store
+namespace shopping.inandout.store
 
-use com.shopping.inandout#Description
-use com.shopping.inandout#GeoCoordinates
-use com.shopping.inandout#ImageUrl
-use com.shopping.inandout#InputPagination
-use com.shopping.inandout#Latitude
-use com.shopping.inandout#Longitude
-use com.shopping.inandout#PositiveDouble
-use com.shopping.inandout#ResourceName
-use com.shopping.inandout#Timezone
-use com.shopping.inandout#UUID
-use com.shopping.inandout.brand#Brand
+use shopping.inandout#InputPagination
+use shopping.inandout#Latitude
+use shopping.inandout#Longitude
+use shopping.inandout#NaturalNumber
+use shopping.inandout#OutputPagination
+use shopping.inandout#ResourceName
+use shopping.inandout#UUID
+use shopping.inandout.brand#Brand
 
+// The creation of the brand is independent of the creation of the store.
 @references([
     {
         resource: Brand
     }
 ])
-structure CreateStoreInput {
-    name: ResourceName
-
+structure CreateStoreInput with [StoreInputMixin] {
     @required
+    @notProperty
     brandId: UUID
+}
 
-    description: Description
-
-    imageUrl: ImageUrl
-
-    timezone: Timezone
-
-    operatingHoursMap: OperatingHoursMap
-
-    geoCoordinates: GeoCoordinates
+structure CreateStoreOutput {
+    @required
+    storeId: UUID
 }
 
 structure GetStoreInput {
@@ -42,12 +34,12 @@ structure GetStoreInput {
     storeId: UUID
 }
 
+structure GetStoreOutput with [StoreOutputMixin] {}
+
+@documentation("Retrieve a list of stores based on the provided queries")
 structure ListStoresInput with [InputPagination] {
     @httpQuery("name")
     name: ResourceName
-
-    @httpQuery("isOpen")
-    isOpen: Boolean
 
     @httpQuery("userLongitude")
     userLongitude: Longitude
@@ -56,38 +48,32 @@ structure ListStoresInput with [InputPagination] {
     userLatitude: Latitude
 
     // ! User location must be provided in order for the below queries to work.
+    @httpQuery("isOpen")
+    @documentation("Based on user location, his timezone is computed and then the list of open markets")
+    isOpen: Boolean
+
     @httpQuery("maxDistance")
     @documentation("Distance measured in kilometers")
-    maxDistance: PositiveDouble
+    maxDistance: NaturalNumber
 }
 
-@references([
-    {
-        resource: Brand
-    }
-])
-structure UpdateStoreInput {
+structure ListStoresOutput with [OutputPagination] {
+    @required
+    tokens: StoreSummaryList
+}
+
+structure UpdateStoreInput with [StoreInputMixin] {
     @required
     @httpLabel
     storeId: UUID
-
-    name: ResourceName
-
-    brandId: UUID
-
-    description: Description
-
-    imageUrl: ImageUrl
-
-    timezone: Timezone
-
-    operatingHoursMap: OperatingHoursMap
-
-    geoCoordinates: GeoCoordinates
 }
+
+structure UpdateStoreOutput with [StoreOutputMixin] {}
 
 structure DeleteStoreInput {
     @required
     @httpLabel
     storeId: UUID
 }
+
+structure DeleteStoreOutput {}

@@ -1,15 +1,15 @@
 $version: "2"
 
-namespace com.shopping.inandout.brand
+namespace shopping.inandout.brand
 
-use com.shopping.inandout#DeleteRestrictedError
-use com.shopping.inandout#ImageUrl
-use com.shopping.inandout#InternalServerError
-use com.shopping.inandout#InvalidInputError
-use com.shopping.inandout#ResourceAlreadyExistsError
-use com.shopping.inandout#ResourceName
-use com.shopping.inandout#ResourceNotFoundError
-use com.shopping.inandout#UUID
+use shopping.inandout#DeleteRestrictedError
+use shopping.inandout#ImageUrl
+use shopping.inandout#InternalServerError
+use shopping.inandout#InvalidInputError
+use shopping.inandout#ResourceAlreadyExistsError
+use shopping.inandout#ResourceName
+use shopping.inandout#ResourceNotFoundError
+use shopping.inandout#UUID
 
 resource Brand {
     identifiers: {
@@ -30,7 +30,7 @@ resource Brand {
 @http(method: "POST", uri: "/brands")
 operation CreateBrand {
     input: CreateBrandInput
-    output: BrandSummary
+    output: CreateBrandOutput
     errors: [
         InvalidInputError
         ResourceAlreadyExistsError
@@ -42,7 +42,7 @@ operation CreateBrand {
 @http(method: "GET", uri: "/brands/{brandId}")
 operation GetBrand {
     input: GetBrandInput
-    output: BrandSummary
+    output: GetBrandOutput
     errors: [
         InvalidInputError
         ResourceNotFoundError
@@ -53,7 +53,7 @@ operation GetBrand {
 @http(method: "PATCH", uri: "/brands/{brandId}")
 operation UpdateBrand {
     input: UpdateBrandInput
-    output: BrandSummary
+    output: UpdateBrandOutput
     errors: [
         InvalidInputError
         ResourceNotFoundError
@@ -66,7 +66,7 @@ operation UpdateBrand {
 @documentation("Restricted cascading operation, references for stores and articles should NOT exist")
 operation DeleteBrand {
     input: DeleteBrandInput
-    output: BrandSummary
+    output: DeleteBrandOutput
     errors: [
         InvalidInputError
         ResourceNotFoundError

@@ -1,23 +1,32 @@
 $version: "2"
 
-namespace com.shopping.inandout.brand
+namespace shopping.inandout.brand
 
-use com.shopping.inandout#ImageUrl
-use com.shopping.inandout#ResourceName
-use com.shopping.inandout#UUID
+use shopping.inandout#AuditMetadata
+use shopping.inandout#ImageUrl
+use shopping.inandout#ResourceName
+use shopping.inandout#UUID
 
-structure BrandSummary {
+@mixin
+structure BrandMixin {
+    logoUrl: ImageUrl
+}
+
+@mixin
+structure BrandInputMixin with [BrandMixin] {}
+
+@mixin
+@references([
+    {
+        resource: Brand
+    }
+])
+structure BrandOutputMixin with [AuditMetadata, BrandMixin] {
     @required
     brandId: UUID
 
     @required
     name: ResourceName
-
-    logoUrl: ImageUrl
-
-    @required
-    createdAt: Timestamp
-
-    @required
-    updatedAt: Timestamp
 }
+
+structure BrandSummary with [BrandOutputMixin] {}

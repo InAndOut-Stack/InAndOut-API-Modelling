@@ -1,25 +1,23 @@
 $version: "2"
 
-namespace com.shopping.inandout.stand
+namespace shopping.inandout.stand
 
-use com.shopping.inandout#InternalServerError
-use com.shopping.inandout#InvalidInputError
-use com.shopping.inandout#PositiveDouble
-use com.shopping.inandout#Price
-use com.shopping.inandout#ResourceAlreadyExistsError
-use com.shopping.inandout#ResourceNotFoundError
-use com.shopping.inandout#UUID
+use shopping.inandout#InternalServerError
+use shopping.inandout#InvalidInputError
+use shopping.inandout#PositiveDouble
+use shopping.inandout#ResourceAlreadyExistsError
+use shopping.inandout#ResourceNotFoundError
+use shopping.inandout#UUID
+use shopping.inandout.article#ArticleSummary
 
 resource Stand {
     identifiers: {
-        storeId: UUID
         standId: UUID
     }
     properties: {
-        articleId: UUID
         edgeId: UUID
-        price: Price
         sourceNodeDistance: PositiveDouble
+        articleSummary: ArticleSummary
         createdAt: Timestamp
         updatedAt: Timestamp
     }
@@ -33,7 +31,7 @@ resource Stand {
 @http(method: "POST", uri: "/stores/{storeId}/stands")
 operation CreateStand {
     input: CreateStandInput
-    output: StandSummary
+    output: CreateStandOutput
     errors: [
         InvalidInputError
         ResourceAlreadyExistsError
@@ -45,7 +43,7 @@ operation CreateStand {
 @http(method: "GET", uri: "/stores/{storeId}/stands/{standId}")
 operation GetStand {
     input: GetStandInput
-    output: StandSummary
+    output: GetStandOutput
     errors: [
         InvalidInputError
         ResourceNotFoundError
@@ -58,7 +56,7 @@ operation GetStand {
 @http(method: "GET", uri: "/stores/{storeId}/stands")
 operation ListStands {
     input: ListStandsInput
-    output: StandSummaries
+    output: ListStandsOutput
     errors: [
         InvalidInputError
         InternalServerError
@@ -68,7 +66,7 @@ operation ListStands {
 @http(method: "PATCH", uri: "/stores/{storeId}/stands/{standId}")
 operation UpdateStand {
     input: UpdateStandInput
-    output: StandSummary
+    output: UpdateStandOutput
     errors: [
         InvalidInputError
         ResourceNotFoundError
@@ -80,7 +78,7 @@ operation UpdateStand {
 @http(method: "DELETE", uri: "/stores/{storeId}/stands/{standId}")
 operation DeleteStand {
     input: DeleteStandInput
-    output: StandSummary
+    output: DeleteStandOutput
     errors: [
         InvalidInputError
         ResourceNotFoundError

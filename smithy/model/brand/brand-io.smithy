@@ -1,16 +1,18 @@
 $version: "2"
 
-namespace com.shopping.inandout.brand
+namespace shopping.inandout.brand
 
-use com.shopping.inandout#ImageUrl
-use com.shopping.inandout#ResourceName
-use com.shopping.inandout#UUID
+use shopping.inandout#ResourceName
+use shopping.inandout#UUID
 
-structure CreateBrandInput {
+structure CreateBrandInput with [BrandInputMixin] {
     @required
     name: ResourceName
+}
 
-    logoUrl: ImageUrl
+structure CreateBrandOutput {
+    @required
+    brandId: UUID
 }
 
 structure GetBrandInput {
@@ -19,18 +21,22 @@ structure GetBrandInput {
     brandId: UUID
 }
 
-structure UpdateBrandInput {
+structure GetBrandOutput with [BrandOutputMixin] {}
+
+structure UpdateBrandInput with [BrandInputMixin] {
     @required
     @httpLabel
     brandId: UUID
 
     name: ResourceName
-
-    logoUrl: ImageUrl
 }
+
+structure UpdateBrandOutput with [BrandOutputMixin] {}
 
 structure DeleteBrandInput {
     @required
     @httpLabel
     brandId: UUID
 }
+
+structure DeleteBrandOutput {}

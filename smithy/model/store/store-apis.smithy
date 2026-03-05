@@ -1,18 +1,20 @@
 $version: "2"
 
-namespace com.shopping.inandout.store
+namespace shopping.inandout.store
 
-use com.shopping.inandout#Description
-use com.shopping.inandout#GeoCoordinates
-use com.shopping.inandout#ImageUrl
-use com.shopping.inandout#InternalServerError
-use com.shopping.inandout#InvalidInputError
-use com.shopping.inandout#ResourceAlreadyExistsError
-use com.shopping.inandout#ResourceName
-use com.shopping.inandout#ResourceNotFoundError
-use com.shopping.inandout#Timezone
-use com.shopping.inandout#UUID
-use com.shopping.inandout.stand#Stand
+use shopping.inandout#Description
+use shopping.inandout#ImageUrl
+use shopping.inandout#InternalServerError
+use shopping.inandout#InvalidInputError
+use shopping.inandout#Latitude
+use shopping.inandout#Longitude
+use shopping.inandout#NaturalNumber
+use shopping.inandout#ResourceAlreadyExistsError
+use shopping.inandout#ResourceName
+use shopping.inandout#ResourceNotFoundError
+use shopping.inandout#UTCTimezone
+use shopping.inandout#UUID
+use shopping.inandout.brand#BrandSummary
 
 resource Store {
     identifiers: {
@@ -20,18 +22,18 @@ resource Store {
     }
     properties: {
         name: ResourceName
-        brandId: UUID
+        brandSummary: BrandSummary
         description: Description
         imageUrl: ImageUrl
-        geoCoordinates: GeoCoordinates
+        timezone: UTCTimezone
         operatingHoursMap: OperatingHoursMap
-        timezone: Timezone
+        locationMapping: LocationMapping
+        mappingVersion: NaturalNumber
+        longitude: Longitude
+        latitude: Latitude
         createdAt: Timestamp
         updatedAt: Timestamp
     }
-    resources: [
-        Stand
-    ]
     create: CreateStore
     read: GetStore
     list: ListStores
@@ -42,7 +44,7 @@ resource Store {
 @http(method: "POST", uri: "/stores")
 operation CreateStore {
     input: CreateStoreInput
-    output: StoreSummary
+    output: CreateStoreOutput
     errors: [
         InvalidInputError
         ResourceAlreadyExistsError
@@ -52,9 +54,10 @@ operation CreateStore {
 
 @readonly
 @http(method: "GET", uri: "/stores/{storeId}")
+@documentation("Returns additional brand details in order to avoid multiple network round-trips")
 operation GetStore {
     input: GetStoreInput
-    output: StoreSummary
+    output: GetStoreOutput
     errors: [
         InvalidInputError
         ResourceNotFoundError
@@ -65,9 +68,10 @@ operation GetStore {
 @readonly
 @paginated
 @http(method: "GET", uri: "/stores")
+@documentation("Returns additional brand details in order to avoid multiple network round-trips")
 operation ListStores {
     input: ListStoresInput
-    output: StoreSummaries
+    output: ListStoresOutput
     errors: [
         InvalidInputError
         InternalServerError
@@ -75,9 +79,10 @@ operation ListStores {
 }
 
 @http(method: "PATCH", uri: "/stores/{storeId}")
+@documentation("Non-idempotent cascading operation, creates/deletes internal resources as needed")
 operation UpdateStore {
     input: UpdateStoreInput
-    output: StoreSummary
+    output: UpdateStoreOutput
     errors: [
         InvalidInputError
         ResourceNotFoundError
@@ -90,7 +95,7 @@ operation UpdateStore {
 @documentation("Not restricted cascading operation, deletes floors, stands, etc.")
 operation DeleteStore {
     input: DeleteStoreInput
-    output: StoreSummary
+    output: DeleteStoreOutput
     errors: [
         InvalidInputError
         ResourceNotFoundError

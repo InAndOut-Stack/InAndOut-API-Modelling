@@ -1,59 +1,107 @@
 $version: "2"
 
-namespace com.shopping.inandout.store
+namespace shopping.inandout.store
 
-use com.shopping.inandout#DayType
-use com.shopping.inandout#Description
-use com.shopping.inandout#GeoCoordinates
-use com.shopping.inandout#ImageUrl
-use com.shopping.inandout#OutputPagination
-use com.shopping.inandout#ResourceName
-use com.shopping.inandout#TimeRange
-use com.shopping.inandout#Timezone
-use com.shopping.inandout#UUID
-use com.shopping.inandout.brand#Brand
+use shopping.inandout#AuditMetadata
+use shopping.inandout#DayType
+use shopping.inandout#Description
+use shopping.inandout#ImageUrl
+use shopping.inandout#Latitude
+use shopping.inandout#Longitude
+use shopping.inandout#NaturalNumber
+use shopping.inandout#ResourceName
+use shopping.inandout#TimeRange
+use shopping.inandout#UTCTimezone
+use shopping.inandout#UUID
+use shopping.inandout.brand#BrandSummary
 
 map OperatingHoursMap {
     key: DayType
     value: TimeRange
 }
 
-@references([
-    {
-        resource: Brand
-    }
-])
-structure StoreSummary {
+structure LocationMapping {
+    floorList: FloorList
+}
+
+list FloorList {
+    member: Floor
+}
+
+structure Floor {
     @required
-    storeId: UUID
+    floorId: UUID
+
+    @required
+    level: Byte
+
+    edgeList: EdgeList
+}
+
+list EdgeList {
+    member: Edge
+}
+
+structure Edge {
+    @required
+    sourceNode: Node
+
+    @required
+    targetNode: Node
 
     name: ResourceName
 
-    @required
-    brandId: UUID
-
-    description: Description
-
-    imageUrl: ImageUrl
-
-    geoCoordinates: GeoCoordinates
-
-    operatingHoursMap: OperatingHoursMap
-
-    timezone: Timezone
-
-    @required
-    createdAt: Timestamp
-
-    @required
-    updatedAt: Timestamp
+    weight: Double
 }
+
+structure Node {
+    @required
+    name: ResourceName
+
+    type: NodeType
+}
+
+enum NodeType {
+    NAVIGATION = "NAVIGATION"
+    ELEVATION = "ELEVATION"
+    DESCENT = "DESCENT"
+}
+
+@mixin
+structure StoreMixin {
+    description: Description
+    imageUrl: ImageUrl
+    timezone: UTCTimezone
+    operatingHoursMap: OperatingHoursMap
+    longitude: Longitude
+    latitude: Latitude
+}
+
+@mixin
+structure StoreInputMixin with [StoreMixin] {
+    name: ResourceName
+    locationMapping: LocationMapping
+}
+
+@mixin
+@documentation("Retrieves store and its associated brand details")
+structure StoreOutputMixin with [AuditMetadata, StoreMixin] {
+    @required
+    storeId: UUID
+
+    @required
+    name: ResourceName
+
+    @required
+    brandSummary: BrandSummary
+
+    @required
+    mappingVersion: NaturalNumber
+}
+
+// Needed for the list method.
+structure StoreSummary with [StoreOutputMixin] {}
 
 list StoreSummaryList {
     member: StoreSummary
-}
-
-// This is needed since lists or other similar collections can not be used as input/output for operations.
-structure StoreSummaries with [OutputPagination] {
-    tokens: StoreSummaryList
 }

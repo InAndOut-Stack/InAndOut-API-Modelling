@@ -1,80 +1,85 @@
 $version: "2"
 
-namespace com.shopping.inandout.stand
+namespace shopping.inandout.stand
 
-use com.shopping.inandout#Currency
-use com.shopping.inandout#InputPagination
-use com.shopping.inandout#PositiveDouble
-use com.shopping.inandout#Price
-use com.shopping.inandout#UUID
+use shopping.inandout#InputPagination
+use shopping.inandout#OutputPagination
+use shopping.inandout#PositiveDouble
+use shopping.inandout#StoreIdMixin
+use shopping.inandout#UUID
+use shopping.inandout.article#Article
+use shopping.inandout.article#CreateArticleInput
 
-structure CreateStandInput {
-    @required
-    @httpLabel
-    storeId: UUID
-
-    @required
-    articleId: UUID
-
+@references([
+    {
+        resource: Article
+    }
+])
+structure CreateStandInput with [StoreIdMixin] {
     @required
     edgeId: UUID
 
-    price: Price
-
+    @required
     sourceNodeDistance: PositiveDouble
+
+    // Clients must choose between providing an article id/details.
+    // Not none, not both, one field must be filled.
+    @notProperty
+    @documentation("Existing article referenced in a new stand")
+    articleId: UUID
+
+    @notProperty
+    @documentation("Creates a new article")
+    createArticleInput: CreateArticleInput
 }
 
-structure GetStandInput {
+structure CreateStandOutput {
     @required
-    @httpLabel
-    storeId: UUID
+    standId: UUID
+}
 
+structure GetStandInput with [StoreIdMixin] {
     @required
     @httpLabel
     standId: UUID
 }
 
-structure ListStandsInput with [InputPagination] {
-    @required
-    @httpLabel
-    storeId: UUID
+structure GetStandOutput with [StandOutputMixin] {}
 
+@references([
+    {
+        resource: Article
+    }
+])
+structure ListStandsInput with [StoreIdMixin, InputPagination] {
     @httpQuery("edgeId")
     edgeId: UUID
 
     @httpQuery("articleId")
     articleId: UUID
-
-    @httpQuery("priceAmount")
-    priceAmount: PositiveDouble
-
-    @httpQuery("priceCurrency")
-    @default("RON")
-    priceCurrency: Currency
 }
 
-structure UpdateStandInput {
+structure ListStandsOutput with [OutputPagination] {
     @required
-    @httpLabel
-    storeId: UUID
+    tokens: StandSummaryList
+}
 
+structure UpdateStandInput with [StoreIdMixin] {
     @required
     @httpLabel
     standId: UUID
 
     edgeId: UUID
 
-    price: Price
-
     sourceNodeDistance: PositiveDouble
 }
 
-structure DeleteStandInput {
-    @required
-    @httpLabel
-    storeId: UUID
+structure UpdateStandOutput with [StandOutputMixin] {}
 
+structure DeleteStandInput with [StoreIdMixin] {
     @required
     @httpLabel
     standId: UUID
 }
+
+structure DeleteStandOutput {}

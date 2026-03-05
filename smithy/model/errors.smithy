@@ -1,6 +1,6 @@
 $version: "2"
 
-namespace com.shopping.inandout
+namespace shopping.inandout
 
 @error("client")
 @httpError(400)

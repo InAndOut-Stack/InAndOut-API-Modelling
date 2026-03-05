@@ -1,14 +1,13 @@
 $version: "2"
 
-namespace com.shopping.inandout
+namespace shopping.inandout
 
-@pattern("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
-@length(min: 36, max: 36)
+use shopping.inandout.brand#Brand
+use shopping.inandout.store#Store
+
+@pattern("^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
+@length(min: 32, max: 32)
 string UUID
-
-list UUIDList {
-    member: UUID
-}
 
 @pattern("^[a-zA-Z0-9\\- ]+$")
 @length(min: 3, max: 63)
@@ -22,6 +21,23 @@ string ImageUrl
 @length(min: 8, max: 255)
 string Description
 
+// All UTC offsets fall between this interval: [-12, 14].
+// See: https://en.wikipedia.org/wiki/List_of_UTC_offsets.
+@range(min: -12, max: 14)
+integer UTCTimezone
+
+@range(min: 0, max: 59)
+integer Minute
+
+@range(min: 0, max: 23)
+integer Hour
+
+@range(min: -180, max: 180)
+double Longitude
+
+@range(min: -90, max: 90)
+double Latitude
+
 @range(min: 0, max: 100)
 double Percentage
 
@@ -30,35 +46,6 @@ integer NaturalNumber
 
 @range(min: 0)
 double PositiveDouble
-
-@range(min: -180, max: 180)
-double Longitude
-
-@range(min: -90, max: 90)
-double Latitude
-
-enum Currency {
-    RON = "RON"
-    EUR = "EUR"
-    USD = "USD"
-}
-
-structure Price {
-    @required
-    amount: PositiveDouble
-
-    @required
-    @default("RON")
-    currency: Currency
-}
-
-structure GeoCoordinates {
-    @required
-    longitude: Longitude
-
-    @required
-    latitude: Latitude
-}
 
 enum DayType {
     MON = "MON"
@@ -70,18 +57,9 @@ enum DayType {
     SUN = "SUN"
 }
 
-// All UTC offsets fall between this interval: [-12, 14].
-// Doubles are better suited since zones like `UTC+12:45` exist.
-// See: https://en.wikipedia.org/wiki/List_of_UTC_offsets.
-@range(min: -12, max: 14)
-@documentation("UTC offsets for various globe zones")
-double Timezone
-
-@range(min: 0, max: 59)
-integer Minute
-
-@range(min: 0, max: 23)
-integer Hour
+list UUIDList {
+    member: UUID
+}
 
 structure Time {
     @required
@@ -97,6 +75,23 @@ structure TimeRange {
 
     @required
     end: Time
+}
+
+@mixin
+structure AuditMetadata {
+    @required
+    createdAt: Timestamp
+
+    @required
+    updatedAt: Timestamp
+}
+
+@mixin
+resource AuditedResource {
+    properties: {
+        createdAt: Timestamp
+        updatedAt: Timestamp
+    }
 }
 
 @mixin
@@ -121,4 +116,33 @@ structure OutputPagination {
     @required
     @documentation("The actual number of items returned in the current response page.")
     tokenCount: NaturalNumber
+}
+
+// The below mixins are used for uri labels poiting to external resources.
+// Internal entity used in offer/stand operations' input structures.
+@mixin
+@references([
+    {
+        resource: Store
+    }
+])
+@documentation("Internal helper structure used to diminish the verbosity of the storeId field")
+structure StoreIdMixin {
+    @required
+    @httpLabel
+    storeId: UUID
+}
+
+// Internal entity used in article operations' input structures.
+@mixin
+@references([
+    {
+        resource: Brand
+    }
+])
+@documentation("Internal helper structure used to diminish the verbosity of the brandId field")
+structure BrandIdMixin {
+    @required
+    @httpLabel
+    brandId: UUID
 }
