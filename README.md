@@ -1,6 +1,6 @@
 # InAndOut-API-Modelling
 
-Complete model for our system.
+Complete API model for our system.
 
 References:
 
