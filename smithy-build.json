@@ -6,7 +6,8 @@
     "dependencies": [
       "software.amazon.smithy:smithy-aws-traits:1.68.0",
       "software.amazon.smithy:smithy-openapi:1.68.0",
-      "software.amazon.smithy:smithy-linters:1.68.0"
+      "software.amazon.smithy:smithy-linters:1.68.0",
+      "software.amazon.smithy.typescript:smithy-aws-typescript-codegen:0.45.0"
     ]
   },
   "plugins": {
@@ -14,6 +15,10 @@
       "service": "shopping.inandout#InAndOut",
       "protocol": "aws.protocols#restJson1",
       "version": "3.1.0"
+    },
+    "typescript-codegen": {
+      "package": "@inandout/client",
+      "packageVersion": "0.0.1"
     }
   }
 }
