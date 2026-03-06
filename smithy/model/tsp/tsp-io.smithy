@@ -11,5 +11,5 @@ structure FindTspSolutionInput {
 
 structure FindTspSolutionOutput {
     @required
-    soltuionList: SoltuionList
+    solutionList: SolutionList
 }
