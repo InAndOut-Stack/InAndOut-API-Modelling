@@ -1,8 +1,8 @@
 $version: "2"
 
-namespace shopping.inandout
+namespace com.shopping.inandout
 
-use shopping.inandout.tsp#FindTspSolution
+use com.shopping.inandout.tsp#FindTspSolution
 use aws.protocols#restJson1
 
 @restJson1
