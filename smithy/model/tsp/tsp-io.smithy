@@ -1,8 +1,8 @@
 $version: "2"
 
-namespace shopping.inandout.tsp
+namespace com.shopping.inandout.tsp
 
-use shopping.inandout#UUIDList
+use com.shopping.inandout#UUIDList
 
 structure FindTspSolutionInput {
     @required
