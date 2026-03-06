@@ -1,10 +1,10 @@
 $version: "2"
 
-namespace shopping.inandout.tsp
+namespace com.shopping.inandout.tsp
 
-use shopping.inandout#InternalServerError
-use shopping.inandout#InvalidInputError
-use shopping.inandout#ResourceNotFoundError
+use com.shopping.inandout#InternalServerError
+use com.shopping.inandout#InvalidInputError
+use com.shopping.inandout#ResourceNotFoundError
 
 @http(method: "POST", uri: "/tsp")
 @documentation("Travelling salesman problem solution creation/retrieval operation")
