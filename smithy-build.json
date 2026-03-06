@@ -10,19 +10,31 @@
       "software.amazon.smithy.typescript:smithy-aws-typescript-codegen:0.45.0"
     ]
   },
-  "plugins": {
-    "openapi": {
-      "service": "com.shopping.inandout#InAndOut",
-      "protocol": "aws.protocols#restJson1",
-      "version": "3.1.0"
+  "projections": {
+    "openapi-spec": {
+      "plugins": {
+        "openapi": {
+          "service": "com.shopping.inandout#InAndOut",
+          "protocol": "aws.protocols#restJson1",
+          "version": "3.1.0"
+        }
+      }
     },
-    "java-client-codegen": {
-      "service": "com.shopping.inandout#InAndOut",
-      "namespace": "com.shopping.inandout"
+    "java-client": {
+      "plugins": {
+        "java-client-codegen": {
+          "service": "com.shopping.inandout#InAndOut",
+          "namespace": "com.shopping.inandout"
+        }
+      }
     },
-    "typescript-codegen": {
-      "package": "@inandout/client",
-      "packageVersion": "0.0.1"
+    "typescript-client": {
+      "plugins": {
+        "typescript-codegen": {
+          "package": "@inandout/client",
+          "packageVersion": "0.0.1"
+        }
+      }
     }
   }
 }
