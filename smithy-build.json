@@ -12,9 +12,13 @@
   },
   "plugins": {
     "openapi": {
-      "service": "shopping.inandout#InAndOut",
+      "service": "com.shopping.inandout#InAndOut",
       "protocol": "aws.protocols#restJson1",
       "version": "3.1.0"
+    },
+    "java-client-codegen": {
+      "service": "com.shopping.inandout#InAndOut",
+      "namespace": "com.shopping.inandout"
     },
     "typescript-codegen": {
       "package": "@inandout/client",
