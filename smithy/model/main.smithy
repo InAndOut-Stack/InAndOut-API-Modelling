@@ -6,7 +6,6 @@ use com.shopping.inandout.tsp#FindTspSolution
 use aws.protocols#restJson1
 
 @restJson1
-@paginated(inputToken: "nextToken", outputToken: "nextToken", pageSize: "pageSize", items: "tokens")
 service InAndOut {
     version: "2026-04-01"
     operations: [
