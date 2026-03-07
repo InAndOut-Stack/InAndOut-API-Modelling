@@ -3,6 +3,7 @@ $version: "2"
 namespace com.shopping.inandout.store
 
 use com.shopping.inandout#Description
+use com.shopping.inandout#GeoCoordinates
 use com.shopping.inandout#ImageUrl
 use com.shopping.inandout#InputPagination
 use com.shopping.inandout#Latitude
@@ -26,9 +27,7 @@ structure CreateStoreInput {
 
     operatingHoursMap: OperatingHoursMap
 
-    longitude: Longitude
-
-    latitude: Latitude
+    geoCoordinates: GeoCoordinates
 }
 
 structure GetStoreInput {
@@ -74,9 +73,7 @@ structure UpdateStoreInput {
 
     operatingHoursMap: OperatingHoursMap
 
-    longitude: Longitude
-
-    latitude: Latitude
+    geoCoordinates: GeoCoordinates
 }
 
 structure DeleteStoreInput {

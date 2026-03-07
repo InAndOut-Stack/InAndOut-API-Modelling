@@ -4,9 +4,8 @@ namespace com.shopping.inandout.store
 
 use com.shopping.inandout#DayType
 use com.shopping.inandout#Description
+use com.shopping.inandout#GeoCoordinates
 use com.shopping.inandout#ImageUrl
-use com.shopping.inandout#Latitude
-use com.shopping.inandout#Longitude
 use com.shopping.inandout#OutputPagination
 use com.shopping.inandout#ResourceName
 use com.shopping.inandout#TimeRange
@@ -31,13 +30,11 @@ structure StoreSummary {
 
     imageUrl: ImageUrl
 
-    timezone: Timezone
+    geoCoordinates: GeoCoordinates
 
     operatingHoursMap: OperatingHoursMap
 
-    longitude: Longitude
-
-    latitude: Latitude
+    timezone: Timezone
 
     @required
     createdAt: Timestamp

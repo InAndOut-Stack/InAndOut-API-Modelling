@@ -3,11 +3,10 @@ $version: "2"
 namespace com.shopping.inandout.store
 
 use com.shopping.inandout#Description
+use com.shopping.inandout#GeoCoordinates
 use com.shopping.inandout#ImageUrl
 use com.shopping.inandout#InternalServerError
 use com.shopping.inandout#InvalidInputError
-use com.shopping.inandout#Latitude
-use com.shopping.inandout#Longitude
 use com.shopping.inandout#ResourceAlreadyExistsError
 use com.shopping.inandout#ResourceName
 use com.shopping.inandout#ResourceNotFoundError
@@ -23,10 +22,9 @@ resource Store {
         brandId: UUID
         description: Description
         imageUrl: ImageUrl
-        timezone: Timezone
+        geoCoordinates: GeoCoordinates
         operatingHoursMap: OperatingHoursMap
-        longitude: Longitude
-        latitude: Latitude
+        timezone: Timezone
         createdAt: Timestamp
         updatedAt: Timestamp
     }

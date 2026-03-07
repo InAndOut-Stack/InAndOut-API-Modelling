@@ -50,6 +50,14 @@ integer NaturalNumber
 @range(min: 0)
 double PositiveDouble
 
+structure GeoCoordinates {
+    @required
+    longitude: Longitude
+
+    @required
+    latitude: Latitude
+}
+
 enum DayType {
     MON = "MON"
     TUE = "TUE"
