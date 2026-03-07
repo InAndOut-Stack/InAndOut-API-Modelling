@@ -11,12 +11,18 @@ use com.shopping.inandout#ResourceName
 use com.shopping.inandout#TimeRange
 use com.shopping.inandout#Timezone
 use com.shopping.inandout#UUID
+use com.shopping.inandout.brand#Brand
 
 map OperatingHoursMap {
     key: DayType
     value: TimeRange
 }
 
+@references([
+    {
+        resource: Brand
+    }
+])
 structure StoreSummary {
     @required
     storeId: UUID

@@ -12,7 +12,13 @@ use com.shopping.inandout#PositiveDouble
 use com.shopping.inandout#ResourceName
 use com.shopping.inandout#Timezone
 use com.shopping.inandout#UUID
+use com.shopping.inandout.brand#Brand
 
+@references([
+    {
+        resource: Brand
+    }
+])
 structure CreateStoreInput {
     name: ResourceName
 
@@ -56,6 +62,11 @@ structure ListStoresInput with [InputPagination] {
     maxDistance: PositiveDouble
 }
 
+@references([
+    {
+        resource: Brand
+    }
+])
 structure UpdateStoreInput {
     @required
     @httpLabel
