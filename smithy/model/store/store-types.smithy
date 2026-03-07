@@ -19,15 +19,31 @@ map OperatingHoursMap {
 }
 
 structure StoreSummary {
+    @required
+    @resourceIdentifier("Store")
+    storeId: UUID
+
     name: ResourceName
+
+    @required
     brandId: UUID
+
     description: Description
+
     imageUrl: ImageUrl
+
     timezone: Timezone
+
     operatingHoursMap: OperatingHoursMap
+
     longitude: Longitude
+
     latitude: Latitude
+
+    @required
     createdAt: Timestamp
+
+    @required
     updatedAt: Timestamp
 }
 
