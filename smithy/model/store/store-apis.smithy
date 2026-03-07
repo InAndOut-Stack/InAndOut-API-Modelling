@@ -48,7 +48,6 @@ operation CreateStore {
 
 @readonly
 @http(method: "GET", uri: "/stores/{storeId}")
-@documentation("Returns additional brand details in order to avoid multiple network round-trips")
 operation GetStore {
     input: GetStoreInput
     output: StoreSummary
@@ -62,7 +61,6 @@ operation GetStore {
 @readonly
 @paginated
 @http(method: "GET", uri: "/stores")
-@documentation("Returns additional brand details in order to avoid multiple network round-trips")
 operation ListStores {
     input: ListStoresInput
     output: StoreSummaries
@@ -73,7 +71,6 @@ operation ListStores {
 }
 
 @http(method: "PATCH", uri: "/stores/{storeId}")
-@documentation("Non-idempotent cascading operation, creates/deletes internal resources as needed")
 operation UpdateStore {
     input: UpdateStoreInput
     output: StoreSummary

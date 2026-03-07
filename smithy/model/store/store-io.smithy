@@ -42,7 +42,6 @@ structure GetStoreInput {
     storeId: UUID
 }
 
-@documentation("Retrieve a list of stores based on the provided queries")
 structure ListStoresInput with [InputPagination] {
     @httpQuery("name")
     name: ResourceName
