@@ -8,7 +8,6 @@ use com.shopping.inandout#UUID
 
 structure BrandSummary {
     @required
-    @resourceIdentifier("brandId")
     brandId: UUID
 
     @required
