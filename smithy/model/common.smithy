@@ -9,3 +9,11 @@ string UUID
 list UUIDList {
     member: UUID
 }
+
+@pattern("^[a-zA-Z0-9\\- ]+$")
+@length(min: 3, max: 63)
+string ResourceName
+
+@pattern("^https?://[a-zA-Z0-9\\-._~:/?#\\[\\]@!$&'()*+,;=%]+\\.(jpg|jpeg|png|gif)$")
+@length(min: 8, max: 255)
+string ImageUrl
