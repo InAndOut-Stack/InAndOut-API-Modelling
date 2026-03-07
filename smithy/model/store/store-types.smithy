@@ -20,7 +20,7 @@ map OperatingHoursMap {
 
 structure StoreSummary {
     @required
-    @resourceIdentifier("Store")
+    @resourceIdentifier("storeId")
     storeId: UUID
 
     name: ResourceName
