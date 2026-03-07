@@ -22,25 +22,6 @@ string ImageUrl
 @length(min: 8, max: 255)
 string Description
 
-// All UTC offsets fall between this interval: [-12, 14].
-// Doubles are better suited since zones like `UTC+12:45` exist.
-// See: https://en.wikipedia.org/wiki/List_of_UTC_offsets.
-@range(min: -12, max: 14)
-@documentation("UTC offsets for various globe zones")
-double Timezone
-
-@range(min: 0, max: 59)
-integer Minute
-
-@range(min: 0, max: 23)
-integer Hour
-
-@range(min: -180, max: 180)
-double Longitude
-
-@range(min: -90, max: 90)
-double Latitude
-
 @range(min: 0, max: 100)
 double Percentage
 
@@ -49,6 +30,12 @@ integer NaturalNumber
 
 @range(min: 0)
 double PositiveDouble
+
+@range(min: -180, max: 180)
+double Longitude
+
+@range(min: -90, max: 90)
+double Latitude
 
 structure GeoCoordinates {
     @required
@@ -67,6 +54,19 @@ enum DayType {
     SAT = "SAT"
     SUN = "SUN"
 }
+
+// All UTC offsets fall between this interval: [-12, 14].
+// Doubles are better suited since zones like `UTC+12:45` exist.
+// See: https://en.wikipedia.org/wiki/List_of_UTC_offsets.
+@range(min: -12, max: 14)
+@documentation("UTC offsets for various globe zones")
+double Timezone
+
+@range(min: 0, max: 59)
+integer Minute
+
+@range(min: 0, max: 23)
+integer Hour
 
 structure Time {
     @required
