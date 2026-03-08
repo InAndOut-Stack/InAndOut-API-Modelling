@@ -1,0 +1,59 @@
+$version: "2"
+
+namespace com.shopping.inandout.stand
+
+use com.shopping.inandout#InputPagination
+use com.shopping.inandout#PositiveDouble
+use com.shopping.inandout#UUID
+
+structure CreateStandInput {
+    @required
+    articleId: UUID
+
+    @required
+    edgeId: UUID
+
+    sourceNodeDistance: PositiveDouble
+}
+
+structure GetStandInput {
+    @required
+    @httpLabel
+    storeId: UUID
+
+    @required
+    @httpLabel
+    standId: UUID
+}
+
+structure ListStandsInput with [InputPagination] {
+    @httpQuery("edgeId")
+    edgeId: UUID
+
+    @httpQuery("articleId")
+    articleId: UUID
+}
+
+structure UpdateStandInput {
+    @required
+    @httpLabel
+    storeId: UUID
+
+    @required
+    @httpLabel
+    standId: UUID
+
+    edgeId: UUID
+
+    sourceNodeDistance: PositiveDouble
+}
+
+structure DeleteStandInput {
+    @required
+    @httpLabel
+    storeId: UUID
+
+    @required
+    @httpLabel
+    standId: UUID
+}
