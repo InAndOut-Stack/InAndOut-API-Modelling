@@ -8,6 +8,10 @@ use com.shopping.inandout#UUID
 
 structure CreateStandInput {
     @required
+    @httpLabel
+    storeId: UUID
+
+    @required
     articleId: UUID
 
     @required
@@ -27,6 +31,10 @@ structure GetStandInput {
 }
 
 structure ListStandsInput with [InputPagination] {
+    @required
+    @httpLabel
+    storeId: UUID
+
     @httpQuery("edgeId")
     edgeId: UUID
 
