@@ -5,6 +5,7 @@ namespace com.shopping.inandout.stand
 use com.shopping.inandout#InternalServerError
 use com.shopping.inandout#InvalidInputError
 use com.shopping.inandout#PositiveDouble
+use com.shopping.inandout#Price
 use com.shopping.inandout#ResourceAlreadyExistsError
 use com.shopping.inandout#ResourceNotFoundError
 use com.shopping.inandout#UUID
@@ -17,6 +18,7 @@ resource Stand {
     properties: {
         articleId: UUID
         edgeId: UUID
+        price: Price
         sourceNodeDistance: PositiveDouble
         createdAt: Timestamp
         updatedAt: Timestamp
