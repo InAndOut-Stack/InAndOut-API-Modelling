@@ -37,6 +37,21 @@ double Longitude
 @range(min: -90, max: 90)
 double Latitude
 
+enum Currency {
+    RON = "RON"
+    EUR = "EUR"
+    USD = "USD"
+}
+
+structure Price {
+    @required
+    amount: PositiveDouble
+
+    @required
+    @default("RON")
+    currency: Currency
+}
+
 structure GeoCoordinates {
     @required
     longitude: Longitude
