@@ -4,20 +4,38 @@ namespace com.shopping.inandout.route
 
 use com.shopping.inandout#UUID
 use com.shopping.inandout#UUIDList
+use com.shopping.inandout.stand#Stand
 
-@documentation("Optimal market route")
-structure InStoreSolution {
-    @required
-    storeId: UUID
-
-    @required
-    @documentation("Ordered location list of the selected articles")
-    nodeIdList: UUIDList
+@references([
+    {
+        resource: Stand
+        ids: { storeId: "storeId", standId: "standId" }
+    }
+])
+structure StandNode {
+    standId: UUID
+    weight: Double
 }
 
-@documentation("The route might involve traversing multiple stores")
-list Solution {
-    member: InStoreSolution
+list StandNodeList {
+    member: StandNode
+}
+
+structure Edge {
+    sourceNodeId: UUID
+    weight: Double
+    standIdList: UUIDList
+}
+
+@documentation("Ordered list of edges (store directions) followed by Customers")
+list EdgeList {
+    member: Edge
+}
+
+@documentation("The optimal market path")
+structure Solution {
+    @required
+    edgeList: EdgeList
 }
 
 @documentation("Multiple optimal solutions are returned if those exist")
@@ -25,8 +43,11 @@ list SolutionList {
     member: Solution
 }
 
-// Subfields are not required
 structure RouteSummary {
+    @required
+    storeId: UUID
+
+    @required
     routeId: UUID
 
     @documentation("Returned only if the TSP operation was finished")

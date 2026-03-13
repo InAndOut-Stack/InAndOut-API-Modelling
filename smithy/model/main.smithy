@@ -4,7 +4,6 @@ namespace com.shopping.inandout
 
 use aws.protocols#restJson1
 use com.shopping.inandout.brand#Brand
-use com.shopping.inandout.route#Route
 use com.shopping.inandout.store#Store
 
 @restJson1
@@ -12,7 +11,6 @@ use com.shopping.inandout.store#Store
 service InAndOut {
     version: "2026-04-01"
     resources: [
-        Route
         Store
         Brand
     ]

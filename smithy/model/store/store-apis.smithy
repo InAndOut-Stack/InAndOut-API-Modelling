@@ -12,6 +12,7 @@ use com.shopping.inandout#ResourceName
 use com.shopping.inandout#ResourceNotFoundError
 use com.shopping.inandout#Timezone
 use com.shopping.inandout#UUID
+use com.shopping.inandout.route#Route
 use com.shopping.inandout.stand#Stand
 
 resource Store {
@@ -31,6 +32,7 @@ resource Store {
     }
     resources: [
         Stand
+        Route
     ]
     create: CreateStore
     read: GetStore
