@@ -21,7 +21,7 @@ resource Route {
     delete: DeleteRoute
 }
 
-@http(method: "POST", uri: "/routes")
+@http(method: "POST", uri: "/api/routes")
 operation CreateRoute {
     input: CreateRouteInput
     output: RouteSummary
@@ -33,7 +33,7 @@ operation CreateRoute {
 }
 
 @readonly
-@http(method: "GET", uri: "/routes/{routeId}")
+@http(method: "GET", uri: "/api/routes/{routeId}")
 operation GetRoute {
     input: GetRouteInput
     output: RouteSummary
@@ -45,7 +45,7 @@ operation GetRoute {
 }
 
 @idempotent
-@http(method: "DELETE", uri: "/routes/{routeId}")
+@http(method: "DELETE", uri: "/api/routes/{routeId}")
 operation DeleteRoute {
     input: DeleteRouteInput
     output: RouteSummary
