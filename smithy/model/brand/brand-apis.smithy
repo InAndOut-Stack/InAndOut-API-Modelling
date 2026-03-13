@@ -69,7 +69,6 @@ operation DeleteBrand {
     output: BrandSummary
     errors: [
         InvalidInputError
-        ResourceNotFoundError
         DeleteRestrictedError
         InternalServerError
     ]
