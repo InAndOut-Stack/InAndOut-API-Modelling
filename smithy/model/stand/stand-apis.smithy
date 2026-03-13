@@ -83,7 +83,6 @@ operation DeleteStand {
     output: StandSummary
     errors: [
         InvalidInputError
-        ResourceNotFoundError
         InternalServerError
     ]
 }
