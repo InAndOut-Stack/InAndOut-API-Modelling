@@ -4,16 +4,12 @@ namespace com.shopping.inandout.route
 
 use com.shopping.inandout#UUID
 use com.shopping.inandout#UUIDList
-use com.shopping.inandout.stand#Stand
 
-@references([
-    {
-        resource: Stand
-        ids: { storeId: "storeId", standId: "standId" }
-    }
-])
+@documentation("In between nodes navigable stand points")
 structure StandNode {
+    @required
     standId: UUID
+
     weight: Double
 }
 
@@ -21,21 +17,25 @@ list StandNodeList {
     member: StandNode
 }
 
-structure Edge {
-    sourceNodeId: UUID
-    weight: Double
-    standIdList: UUIDList
+structure TspEdge {
+    @required
+    edgeId: UUID
+
+    @required
+    startingNodeId: UUID
+
+    standNodeList: StandNodeList
 }
 
-@documentation("Ordered list of edges (store directions) followed by Customers")
-list EdgeList {
-    member: Edge
+@documentation("Ordered list of edges/aisles")
+list TspEdgeList {
+    member: TspEdge
 }
 
 @documentation("The optimal market path")
 structure Solution {
     @required
-    edgeList: EdgeList
+    edgeList: TspEdgeList
 }
 
 @documentation("Multiple optimal solutions are returned if those exist")
@@ -49,6 +49,10 @@ structure RouteSummary {
 
     @required
     routeId: UUID
+
+    @required
+    @documentation("The initial input")
+    standIdList: UUIDList
 
     @documentation("Returned only if the TSP operation was finished")
     solutionList: SolutionList
