@@ -30,7 +30,7 @@ resource Stand {
     delete: DeleteStand
 }
 
-@http(method: "POST", uri: "/stores/{storeId}/stands")
+@http(method: "POST", uri: "/api/stores/{storeId}/stands")
 operation CreateStand {
     input: CreateStandInput
     output: StandSummary
@@ -42,7 +42,7 @@ operation CreateStand {
 }
 
 @readonly
-@http(method: "GET", uri: "/stores/{storeId}/stands/{standId}")
+@http(method: "GET", uri: "/api/stores/{storeId}/stands/{standId}")
 operation GetStand {
     input: GetStandInput
     output: StandSummary
@@ -55,7 +55,7 @@ operation GetStand {
 
 @readonly
 @paginated
-@http(method: "GET", uri: "/stores/{storeId}/stands")
+@http(method: "GET", uri: "/api/stores/{storeId}/stands")
 operation ListStands {
     input: ListStandsInput
     output: StandSummaries
@@ -65,7 +65,7 @@ operation ListStands {
     ]
 }
 
-@http(method: "PATCH", uri: "/stores/{storeId}/stands/{standId}")
+@http(method: "PATCH", uri: "/api/stores/{storeId}/stands/{standId}")
 operation UpdateStand {
     input: UpdateStandInput
     output: StandSummary
@@ -77,13 +77,12 @@ operation UpdateStand {
 }
 
 @idempotent
-@http(method: "DELETE", uri: "/stores/{storeId}/stands/{standId}")
+@http(method: "DELETE", uri: "/api/stores/{storeId}/stands/{standId}")
 operation DeleteStand {
     input: DeleteStandInput
     output: StandSummary
     errors: [
         InvalidInputError
-        ResourceNotFoundError
         InternalServerError
     ]
 }

@@ -27,7 +27,7 @@ resource Brand {
     delete: DeleteBrand
 }
 
-@http(method: "POST", uri: "/brands")
+@http(method: "POST", uri: "/api/brands")
 operation CreateBrand {
     input: CreateBrandInput
     output: BrandSummary
@@ -39,7 +39,7 @@ operation CreateBrand {
 }
 
 @readonly
-@http(method: "GET", uri: "/brands/{brandId}")
+@http(method: "GET", uri: "/api/brands/{brandId}")
 operation GetBrand {
     input: GetBrandInput
     output: BrandSummary
@@ -50,7 +50,7 @@ operation GetBrand {
     ]
 }
 
-@http(method: "PATCH", uri: "/brands/{brandId}")
+@http(method: "PATCH", uri: "/api/brands/{brandId}")
 operation UpdateBrand {
     input: UpdateBrandInput
     output: BrandSummary
@@ -62,14 +62,13 @@ operation UpdateBrand {
 }
 
 @idempotent
-@http(method: "DELETE", uri: "/brands/{brandId}")
+@http(method: "DELETE", uri: "/api/brands/{brandId}")
 @documentation("Restricted cascading operation, references for stores and articles should NOT exist")
 operation DeleteBrand {
     input: DeleteBrandInput
     output: BrandSummary
     errors: [
         InvalidInputError
-        ResourceNotFoundError
         DeleteRestrictedError
         InternalServerError
     ]

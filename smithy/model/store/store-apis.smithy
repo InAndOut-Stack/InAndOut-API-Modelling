@@ -12,6 +12,7 @@ use com.shopping.inandout#ResourceName
 use com.shopping.inandout#ResourceNotFoundError
 use com.shopping.inandout#Timezone
 use com.shopping.inandout#UUID
+use com.shopping.inandout.route#Route
 use com.shopping.inandout.stand#Stand
 
 resource Store {
@@ -31,6 +32,7 @@ resource Store {
     }
     resources: [
         Stand
+        Route
     ]
     create: CreateStore
     read: GetStore
@@ -39,7 +41,7 @@ resource Store {
     delete: DeleteStore
 }
 
-@http(method: "POST", uri: "/stores")
+@http(method: "POST", uri: "/api/stores")
 operation CreateStore {
     input: CreateStoreInput
     output: StoreSummary
@@ -51,7 +53,7 @@ operation CreateStore {
 }
 
 @readonly
-@http(method: "GET", uri: "/stores/{storeId}")
+@http(method: "GET", uri: "/api/stores/{storeId}")
 operation GetStore {
     input: GetStoreInput
     output: StoreSummary
@@ -64,7 +66,7 @@ operation GetStore {
 
 @readonly
 @paginated
-@http(method: "GET", uri: "/stores")
+@http(method: "GET", uri: "/api/stores")
 operation ListStores {
     input: ListStoresInput
     output: StoreSummaries
@@ -74,7 +76,7 @@ operation ListStores {
     ]
 }
 
-@http(method: "PATCH", uri: "/stores/{storeId}")
+@http(method: "PATCH", uri: "/api/stores/{storeId}")
 operation UpdateStore {
     input: UpdateStoreInput
     output: StoreSummary
@@ -86,7 +88,7 @@ operation UpdateStore {
 }
 
 @idempotent
-@http(method: "DELETE", uri: "/stores/{storeId}")
+@http(method: "DELETE", uri: "/api/stores/{storeId}")
 @documentation("Not restricted cascading operation, deletes floors, stands, etc.")
 operation DeleteStore {
     input: DeleteStoreInput
