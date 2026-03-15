@@ -21,13 +21,25 @@
         }
       }
     },
-    "java-server": {
+    "java-route-service": {
       "plugins": {
         "java-server-codegen": {
           "service": "com.shopping.inandout#InAndOut",
           "namespace": "com.shopping.inandout"
         }
-      }
+      },
+      "transforms": [
+        {
+          "name": "includeNamespaces",
+          "args": {
+            "namespaces": [
+              "com.shopping.inandout",
+              "com.shopping.inandout.store",
+              "com.shopping.inandout.route"
+            ]
+          }
+        }
+      ]
     },
     "typescript-client": {
       "plugins": {
