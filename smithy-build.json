@@ -7,9 +7,8 @@
       "software.amazon.smithy:smithy-aws-traits:1.68.0",
       "software.amazon.smithy:smithy-openapi:1.68.0",
       "software.amazon.smithy:smithy-linters:1.68.0",
-      "software.amazon.smithy.typescript:smithy-aws-typescript-codegen:0.45.0",
-      "software.amazon.smithy.java:client-codegen:0.0.3",
-      "software.amazon.smithy.java:client-core:0.0.3"
+      "software.amazon.smithy.java.codegen:plugins:0.0.1",
+      "software.amazon.smithy.typescript:smithy-aws-typescript-codegen:0.45.0"
     ]
   },
   "projections": {
@@ -22,9 +21,9 @@
         }
       }
     },
-    "java-client": {
+    "java-server": {
       "plugins": {
-        "java-client-codegen": {
+        "java-server-codegen": {
           "service": "com.shopping.inandout#InAndOut",
           "namespace": "com.shopping.inandout"
         }
