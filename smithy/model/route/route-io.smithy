@@ -13,7 +13,6 @@ use com.shopping.inandout.store#Store
 ])
 structure CreateRouteInput {
     @required
-    @resourceIdentifier(Store)
     storeId: UUID
 
     @required
