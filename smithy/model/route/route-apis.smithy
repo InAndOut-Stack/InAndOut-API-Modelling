@@ -12,10 +12,10 @@ use com.shopping.inandout#UUIDList
 @documentation("Travelling salesman problem and solution creation/retrieval")
 resource Route {
     identifiers: {
-        storeId: UUID
         routeId: UUID
     }
     properties: {
+        storeId: UUID
         standIdList: UUIDList
         solutionList: SolutionList
     }
@@ -24,7 +24,7 @@ resource Route {
     delete: DeleteRoute
 }
 
-@http(method: "POST", uri: "/api/stores/{storeId}/routes")
+@http(method: "POST", uri: "/api/routes")
 operation CreateRoute {
     input: CreateRouteInput
     output: RouteSummary
@@ -36,7 +36,7 @@ operation CreateRoute {
 }
 
 @readonly
-@http(method: "GET", uri: "/api/stores/{storeId}/routes/{routeId}")
+@http(method: "GET", uri: "/api/routes/{routeId}")
 operation GetRoute {
     input: GetRouteInput
     output: RouteSummary
@@ -48,7 +48,7 @@ operation GetRoute {
 }
 
 @idempotent
-@http(method: "DELETE", uri: "/api/stores/{storeId}/routes/{routeId}")
+@http(method: "DELETE", uri: "/api/routes/{routeId}")
 operation DeleteRoute {
     input: DeleteRouteInput
     output: RouteSummary
