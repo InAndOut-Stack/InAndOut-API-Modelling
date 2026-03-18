@@ -4,6 +4,7 @@ namespace com.shopping.inandout.route
 
 use com.shopping.inandout#UUID
 use com.shopping.inandout#UUIDList
+use com.shopping.inandout.store#Store
 
 @documentation("In between nodes navigable stand points")
 structure StandNode {
@@ -43,12 +44,17 @@ list SolutionList {
     member: Solution
 }
 
+@references([
+    {
+        resource: Store
+    }
+])
 structure RouteSummary {
     @required
-    storeId: UUID
+    routeId: UUID
 
     @required
-    routeId: UUID
+    storeId: UUID
 
     @required
     @documentation("The initial input")

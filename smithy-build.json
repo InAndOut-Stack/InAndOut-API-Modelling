@@ -34,7 +34,6 @@
           "args": {
             "namespaces": [
               "com.shopping.inandout",
-              "com.shopping.inandout.store",
               "com.shopping.inandout.route"
             ]
           }

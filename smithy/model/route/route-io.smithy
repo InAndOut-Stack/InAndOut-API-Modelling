@@ -4,10 +4,16 @@ namespace com.shopping.inandout.route
 
 use com.shopping.inandout#UUID
 use com.shopping.inandout#UUIDList
+use com.shopping.inandout.store#Store
 
+@references([
+    {
+        resource: Store
+    }
+])
 structure CreateRouteInput {
     @required
-    @httpLabel
+    @resourceIdentifier(Store)
     storeId: UUID
 
     @required
@@ -17,18 +23,10 @@ structure CreateRouteInput {
 structure GetRouteInput {
     @required
     @httpLabel
-    storeId: UUID
-
-    @required
-    @httpLabel
     routeId: UUID
 }
 
 structure DeleteRouteInput {
-    @required
-    @httpLabel
-    storeId: UUID
-
     @required
     @httpLabel
     routeId: UUID
