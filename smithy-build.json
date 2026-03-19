@@ -4,9 +4,9 @@
   "sources": ["smithy/model/"],
   "maven": {
     "dependencies": [
-      "software.amazon.smithy:smithy-aws-traits:1.68.0",
-      "software.amazon.smithy:smithy-openapi:1.68.0",
-      "software.amazon.smithy:smithy-linters:1.68.0",
+      "software.amazon.smithy:smithy-aws-traits:1.67.0",
+      "software.amazon.smithy:smithy-openapi:1.67.0",
+      "software.amazon.smithy:smithy-linters:1.67.0",
       "software.amazon.smithy.java.codegen:plugins:0.0.1",
       "software.amazon.smithy.typescript:smithy-aws-typescript-codegen:0.45.0"
     ]
