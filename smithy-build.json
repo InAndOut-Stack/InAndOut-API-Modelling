@@ -1,32 +1,4 @@
 {
   "version": "1.0",
-  "outputDirectory": "build/",
-  "sources": ["model/"],
-  "maven": {
-    "dependencies": [
-      "software.amazon.smithy:smithy-aws-traits:1.67.0",
-      "software.amazon.smithy:smithy-openapi:1.67.0",
-      "software.amazon.smithy:smithy-linters:1.67.0",
-      "software.amazon.smithy.typescript:smithy-aws-typescript-codegen:0.45.0"
-    ]
-  },
-  "projections": {
-    "openapi-spec": {
-      "plugins": {
-        "openapi": {
-          "service": "com.shopping.inandout#InAndOut",
-          "protocol": "aws.protocols#restJson1",
-          "version": "3.1.0"
-        }
-      }
-    },
-    "typescript-client": {
-      "plugins": {
-        "typescript-codegen": {
-          "package": "@inandout/client",
-          "packageVersion": "0.0.1"
-        }
-      }
-    }
-  }
+  "sources": ["model/"]
 }
