@@ -10,7 +10,6 @@ use com.shopping.inandout.store#Store
 
 @mixin
 @restJson1
-@paginated(inputToken: "nextToken", outputToken: "nextToken", pageSize: "pageSize", items: "tokens")
 service InAndOut {
     version: "0.0.1"
     errors: [
@@ -25,12 +24,14 @@ service RouteService with [InAndOut] {
     ]
 }
 
+@paginated(inputToken: "nextToken", outputToken: "nextToken", pageSize: "pageSize", items: "tokens")
 service MappingService with [InAndOut] {
     resources: [
         Stand
     ]
 }
 
+@paginated(inputToken: "nextToken", outputToken: "nextToken", pageSize: "pageSize", items: "tokens")
 service BusinessService with [InAndOut] {
     resources: [
         Store
