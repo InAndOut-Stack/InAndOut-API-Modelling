@@ -2,12 +2,10 @@ $version: "2"
 
 namespace com.shopping.inandout.route
 
-use com.shopping.inandout#InternalServerError
-use com.shopping.inandout#InvalidInputError
 use com.shopping.inandout#ResourceAlreadyExistsError
 use com.shopping.inandout#ResourceNotFoundError
-use com.shopping.inandout#UUID
-use com.shopping.inandout#UUIDList
+use com.shopping.inandout.util#UUID
+use com.shopping.inandout.util#UUIDList
 
 @documentation("Travelling salesman problem and solution creation/retrieval")
 resource Route {
@@ -29,9 +27,7 @@ operation CreateRoute {
     input: CreateRouteInput
     output: RouteSummary
     errors: [
-        InvalidInputError
         ResourceAlreadyExistsError
-        InternalServerError
     ]
 }
 
@@ -41,9 +37,7 @@ operation GetRoute {
     input: GetRouteInput
     output: RouteSummary
     errors: [
-        InvalidInputError
         ResourceNotFoundError
-        InternalServerError
     ]
 }
 
@@ -52,8 +46,4 @@ operation GetRoute {
 operation DeleteRoute {
     input: DeleteRouteInput
     output: RouteSummary
-    errors: [
-        InvalidInputError
-        InternalServerError
-    ]
 }

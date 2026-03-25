@@ -2,13 +2,12 @@ $version: "2"
 
 namespace com.shopping.inandout.route
 
-use com.shopping.inandout#UUID
-use com.shopping.inandout#UUIDList
-use com.shopping.inandout.store#Store
+use com.shopping.inandout.util#UUID
+use com.shopping.inandout.util#UUIDList
 
 @references([
     {
-        resource: Store
+        resource: "com.shopping.inandout.store#Store"
     }
 ])
 structure CreateRouteInput {

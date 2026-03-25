@@ -3,13 +3,11 @@ $version: "2"
 namespace com.shopping.inandout.brand
 
 use com.shopping.inandout#DeleteRestrictedError
-use com.shopping.inandout#ImageUrl
-use com.shopping.inandout#InternalServerError
-use com.shopping.inandout#InvalidInputError
 use com.shopping.inandout#ResourceAlreadyExistsError
-use com.shopping.inandout#ResourceName
 use com.shopping.inandout#ResourceNotFoundError
-use com.shopping.inandout#UUID
+use com.shopping.inandout.util#ImageUrl
+use com.shopping.inandout.util#ResourceName
+use com.shopping.inandout.util#UUID
 
 resource Brand {
     identifiers: {
@@ -32,9 +30,7 @@ operation CreateBrand {
     input: CreateBrandInput
     output: BrandSummary
     errors: [
-        InvalidInputError
         ResourceAlreadyExistsError
-        InternalServerError
     ]
 }
 
@@ -44,9 +40,7 @@ operation GetBrand {
     input: GetBrandInput
     output: BrandSummary
     errors: [
-        InvalidInputError
         ResourceNotFoundError
-        InternalServerError
     ]
 }
 
@@ -55,9 +49,7 @@ operation UpdateBrand {
     input: UpdateBrandInput
     output: BrandSummary
     errors: [
-        InvalidInputError
         ResourceNotFoundError
-        InternalServerError
     ]
 }
 
@@ -68,8 +60,6 @@ operation DeleteBrand {
     input: DeleteBrandInput
     output: BrandSummary
     errors: [
-        InvalidInputError
         DeleteRestrictedError
-        InternalServerError
     ]
 }

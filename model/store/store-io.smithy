@@ -2,17 +2,17 @@ $version: "2"
 
 namespace com.shopping.inandout.store
 
-use com.shopping.inandout#Description
-use com.shopping.inandout#GeoCoordinates
-use com.shopping.inandout#ImageUrl
-use com.shopping.inandout#InputPagination
-use com.shopping.inandout#Latitude
-use com.shopping.inandout#Longitude
-use com.shopping.inandout#PositiveDouble
-use com.shopping.inandout#ResourceName
-use com.shopping.inandout#Timezone
-use com.shopping.inandout#UUID
 use com.shopping.inandout.brand#Brand
+use com.shopping.inandout.util#Description
+use com.shopping.inandout.util#GeoCoordinates
+use com.shopping.inandout.util#ImageUrl
+use com.shopping.inandout.util#InputPagination
+use com.shopping.inandout.util#Latitude
+use com.shopping.inandout.util#Longitude
+use com.shopping.inandout.util#PositiveDouble
+use com.shopping.inandout.util#ResourceName
+use com.shopping.inandout.util#Timezone
+use com.shopping.inandout.util#UUID
 
 @references([
     {
