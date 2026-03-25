@@ -2,13 +2,11 @@ $version: "2"
 
 namespace com.shopping.inandout.stand
 
-use com.shopping.inandout#InternalServerError
-use com.shopping.inandout#InvalidInputError
-use com.shopping.inandout#PositiveDouble
-use com.shopping.inandout#Price
 use com.shopping.inandout#ResourceAlreadyExistsError
 use com.shopping.inandout#ResourceNotFoundError
-use com.shopping.inandout#UUID
+use com.shopping.inandout.util#PositiveDouble
+use com.shopping.inandout.util#Price
+use com.shopping.inandout.util#UUID
 
 resource Stand {
     identifiers: {
@@ -35,9 +33,7 @@ operation CreateStand {
     input: CreateStandInput
     output: StandSummary
     errors: [
-        InvalidInputError
         ResourceAlreadyExistsError
-        InternalServerError
     ]
 }
 
@@ -47,9 +43,7 @@ operation GetStand {
     input: GetStandInput
     output: StandSummary
     errors: [
-        InvalidInputError
         ResourceNotFoundError
-        InternalServerError
     ]
 }
 
@@ -59,10 +53,6 @@ operation GetStand {
 operation ListStands {
     input: ListStandsInput
     output: StandSummaries
-    errors: [
-        InvalidInputError
-        InternalServerError
-    ]
 }
 
 @http(method: "PATCH", uri: "/api/stores/{storeId}/stands/{standId}")
@@ -70,9 +60,7 @@ operation UpdateStand {
     input: UpdateStandInput
     output: StandSummary
     errors: [
-        InvalidInputError
         ResourceNotFoundError
-        InternalServerError
     ]
 }
 
@@ -81,8 +69,4 @@ operation UpdateStand {
 operation DeleteStand {
     input: DeleteStandInput
     output: StandSummary
-    errors: [
-        InvalidInputError
-        InternalServerError
-    ]
 }

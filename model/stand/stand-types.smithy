@@ -2,10 +2,10 @@ $version: "2"
 
 namespace com.shopping.inandout.stand
 
-use com.shopping.inandout#OutputPagination
-use com.shopping.inandout#PositiveDouble
-use com.shopping.inandout#Price
-use com.shopping.inandout#UUID
+use com.shopping.inandout.util#OutputPagination
+use com.shopping.inandout.util#PositiveDouble
+use com.shopping.inandout.util#Price
+use com.shopping.inandout.util#UUID
 
 structure StandSummary {
     @required

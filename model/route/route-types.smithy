@@ -2,9 +2,8 @@ $version: "2"
 
 namespace com.shopping.inandout.route
 
-use com.shopping.inandout#UUID
-use com.shopping.inandout#UUIDList
-use com.shopping.inandout.store#Store
+use com.shopping.inandout.util#UUID
+use com.shopping.inandout.util#UUIDList
 
 @documentation("In between nodes navigable stand points")
 structure StandNode {
@@ -44,11 +43,6 @@ list SolutionList {
     member: Solution
 }
 
-@references([
-    {
-        resource: Store
-    }
-])
 structure RouteSummary {
     @required
     routeId: UUID

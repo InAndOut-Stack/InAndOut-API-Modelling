@@ -2,9 +2,9 @@ $version: "2"
 
 namespace com.shopping.inandout.brand
 
-use com.shopping.inandout#ImageUrl
-use com.shopping.inandout#ResourceName
-use com.shopping.inandout#UUID
+use com.shopping.inandout.util#ImageUrl
+use com.shopping.inandout.util#ResourceName
+use com.shopping.inandout.util#UUID
 
 structure BrandSummary {
     @required

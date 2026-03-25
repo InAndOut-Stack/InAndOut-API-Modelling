@@ -1,13 +1,12 @@
 {
   "version": "1.0",
   "outputDirectory": "build/",
-  "sources": ["smithy/model/"],
+  "sources": ["model/"],
   "maven": {
     "dependencies": [
       "software.amazon.smithy:smithy-aws-traits:1.67.0",
       "software.amazon.smithy:smithy-openapi:1.67.0",
       "software.amazon.smithy:smithy-linters:1.67.0",
-      "software.amazon.smithy.java.codegen:plugins:0.0.1",
       "software.amazon.smithy.typescript:smithy-aws-typescript-codegen:0.45.0"
     ]
   },
@@ -20,25 +19,6 @@
           "version": "3.1.0"
         }
       }
-    },
-    "java-route-service": {
-      "plugins": {
-        "java-server-codegen": {
-          "service": "com.shopping.inandout#InAndOut",
-          "namespace": "com.shopping.inandout"
-        }
-      },
-      "transforms": [
-        {
-          "name": "includeNamespaces",
-          "args": {
-            "namespaces": [
-              "com.shopping.inandout",
-              "com.shopping.inandout.route"
-            ]
-          }
-        }
-      ]
     },
     "typescript-client": {
       "plugins": {

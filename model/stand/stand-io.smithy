@@ -2,11 +2,11 @@ $version: "2"
 
 namespace com.shopping.inandout.stand
 
-use com.shopping.inandout#Currency
-use com.shopping.inandout#InputPagination
-use com.shopping.inandout#PositiveDouble
-use com.shopping.inandout#Price
-use com.shopping.inandout#UUID
+use com.shopping.inandout.util#Currency
+use com.shopping.inandout.util#InputPagination
+use com.shopping.inandout.util#PositiveDouble
+use com.shopping.inandout.util#Price
+use com.shopping.inandout.util#UUID
 
 structure CreateStandInput {
     @required
