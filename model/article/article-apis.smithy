@@ -2,16 +2,16 @@ $version: "2"
 
 namespace shopping.inandout.article
 
-use shopping.inandout#DeleteRestrictedError
-use shopping.inandout#InternalServerError
-use shopping.inandout#InvalidInputError
-use shopping.inandout#PositiveDouble
-use shopping.inandout#ResourceAlreadyExistsError
-use shopping.inandout#ResourceNotFoundError
-use shopping.inandout#UUID
-use shopping.inandout.product#ProductSummary
-use shopping.inandout.util#Price
-use shopping.inandout.util#Slug
+use com.shopping.inandout#DeleteRestrictedError
+use com.shopping.inandout#InternalServerError
+use com.shopping.inandout#InvalidInputError
+use com.shopping.inandout#PositiveDouble
+use com.shopping.inandout#ResourceAlreadyExistsError
+use com.shopping.inandout#ResourceNotFoundError
+use com.shopping.inandout#UUID
+use com.shopping.inandout.product#ProductSummary
+use com.shopping.inandout.util#Price
+use com.shopping.inandout.util#Slug
 
 resource Article {
     identifiers: {

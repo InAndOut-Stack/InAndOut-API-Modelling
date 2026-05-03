@@ -2,11 +2,11 @@ $version: "2"
 
 namespace shopping.inandout.offer
 
-use shopping.inandout#InputPagination
-use shopping.inandout#OutputPagination
-use shopping.inandout#Percentage
-use shopping.inandout#StoreIdMixin
-use shopping.inandout#UUID
+use com.shopping.inandout#InputPagination
+use com.shopping.inandout#OutputPagination
+use com.shopping.inandout#Percentage
+use com.shopping.inandout#StoreIdMixin
+use com.shopping.inandout#UUID
 
 structure CreateOfferInput  {
     @required

@@ -2,13 +2,13 @@ $version: "2"
 
 namespace shopping.inandout.article
 
-use shopping.inandout#AuditMetadata
-use shopping.inandout#PositiveDouble
-use shopping.inandout#ResourceName
-use shopping.inandout#Timestamp
-use shopping.inandout#UUID
-use shopping.inandout.util#Price
-use shopping.inandout.util#Slug
+use com.shopping.inandout#AuditMetadata
+use com.shopping.inandout#PositiveDouble
+use com.shopping.inandout#ResourceName
+use com.shopping.inandout#Timestamp
+use com.shopping.inandout#UUID
+use com.shopping.inandout.util#Price
+use com.shopping.inandout.util#Slug
 
 structure ProductSummary {
     @required
