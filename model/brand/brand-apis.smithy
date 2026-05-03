@@ -23,6 +23,7 @@ resource Brand {
     }
     resources: [
         Store
+        Article
     ]
     create: CreateBrand
     read: GetBrand
