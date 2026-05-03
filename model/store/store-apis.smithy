@@ -4,7 +4,6 @@ namespace com.shopping.inandout.store
 
 use com.shopping.inandout#ResourceAlreadyExistsError
 use com.shopping.inandout#ResourceNotFoundError
-use com.shopping.inandout.offer#Offer
 use com.shopping.inandout.stand#Stand
 use com.shopping.inandout.util#Currency
 use com.shopping.inandout.util#Description
@@ -34,7 +33,6 @@ resource Store {
     resources: [
         Route
         Stand
-        Offer
     ]
     create: CreateStore
     read: GetStore
