@@ -2,14 +2,14 @@ $version: "2"
 
 namespace shopping.inandout.offer
 
-use shopping.inandout#AuditMetadata
-use shopping.inandout#NaturalNumber
-use shopping.inandout#Percentage
-use shopping.inandout#TimeRange
-use shopping.inandout#UUID
-use shopping.inandout#UUIDList
-use shopping.inandout.article#Article
-use shopping.inandout.store#Store
+use com.shopping.inandout#AuditMetadata
+use com.shopping.inandout#NaturalNumber
+use com.shopping.inandout#Percentage
+use com.shopping.inandout#TimeRange
+use com.shopping.inandout#UUID
+use com.shopping.inandout#UUIDList
+use com.shopping.inandout.article#Article
+use com.shopping.inandout.store#Store
 
 @documentation("Product dependency; it must be bought in order for the offer to activate.")
 structure Dependency {
