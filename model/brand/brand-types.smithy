@@ -4,11 +4,12 @@ namespace com.shopping.inandout.brand
 
 use com.shopping.inandout.util#ImageUrl
 use com.shopping.inandout.util#ResourceName
-use com.shopping.inandout.util#UUID
+use com.shopping.inandout.util#Slug
+use com.shopping.inandout.util#Timestamp
 
 structure BrandSummary {
     @required
-    brandSlug: UUID
+    brandSlug: Slug
 
     @required
     name: ResourceName
