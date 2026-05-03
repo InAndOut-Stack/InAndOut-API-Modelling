@@ -50,10 +50,7 @@ structure RouteSummary {
     brandSlug: Slug
 
     @required
-    storeUid: UID
-
-    @required
-    routeUid: UID
+    storeId: UID
 
     @required
     @documentation("The initial input")

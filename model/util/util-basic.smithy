@@ -6,6 +6,10 @@ namespace com.shopping.inandout.util
 @documentation("Simple identifier of a resource.")
 integer ID
 
+list IDList {
+    member: ID
+}
+
 @pattern("^[0-9a-fA-F]{8}$")
 @length(min: 8, max: 8)
 @documentation("Unique identifier of a resource, scoped to a specific domain.")

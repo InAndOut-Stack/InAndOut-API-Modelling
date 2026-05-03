@@ -2,18 +2,13 @@ $version: "2"
 
 namespace com.shopping.inandout.route
 
+use com.shopping.inandout.util#ID
 use com.shopping.inandout.util#IDList
-use com.shopping.inandout.util#Slug
-use com.shopping.inandout.util#UID
+use com.shopping.inandout.util#UUID
 
 structure CreateRouteInput {
     @required
-    @httpLabel
-    brandSlug: Slug
-
-    @required
-    @httpLabel
-    storeUid: UID
+    storeId: UID
 
     @required
     standIdList: IDList

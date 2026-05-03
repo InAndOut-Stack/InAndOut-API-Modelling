@@ -16,7 +16,10 @@ structure CreateStandInput {
 
     @required
     @httpLabel
-    storeUid: UID
+    storeId: UID
+
+    @required
+    articleSlug: Slug
 
     @required
     articleSlug: Slug
@@ -36,6 +39,10 @@ structure GetStandInput {
 
     @required
     @httpLabel
+    storeId: UID
+
+    @required
+    @httpLabel
     storeUid: UID
 
     @required
@@ -50,7 +57,7 @@ structure ListStandsInput with [InputPagination] {
 
     @required
     @httpLabel
-    storeUid: UID
+    storeId: UID
 
     @httpQuery("edgeId")
     edgeId: ID
@@ -66,6 +73,10 @@ structure UpdateStandInput {
     @required
     @httpLabel
     brandSlug: Slug
+
+    @required
+    @httpLabel
+    storeId: UID
 
     @required
     @httpLabel
@@ -86,6 +97,10 @@ structure DeleteStandInput {
     @required
     @httpLabel
     brandSlug: Slug
+
+    @required
+    @httpLabel
+    storeId: UID
 
     @required
     @httpLabel

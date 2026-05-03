@@ -16,6 +16,7 @@ resource Route {
         routeUid: UID
     }
     properties: {
+        storeId: UID
         standIdList: IDList
         solutionList: SolutionList
     }
