@@ -18,7 +18,7 @@ use com.shopping.inandout.util#UID
 resource Store {
     identifiers: {
         brandSlug: Slug
-        storeId: UUID
+        storeId: UID
     }
     properties: {
         name: ResourceName

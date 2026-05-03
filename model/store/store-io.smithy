@@ -42,7 +42,7 @@ structure GetStoreInput {
 
     @required
     @httpLabel
-    storeId: UUID
+    storeId: UID
 }
 
 structure ListStoresInput with [InputPagination] {
@@ -75,11 +75,9 @@ structure UpdateStoreInput {
 
     @required
     @httpLabel
-    storeId: UUID
+    storeId: UID
 
     name: ResourceName
-
-    brandSlug: UUID
 
     description: Description
 
@@ -101,5 +99,5 @@ structure DeleteStoreInput {
 
     @required
     @httpLabel
-    storeId: UUID
+    storeId: UID
 }

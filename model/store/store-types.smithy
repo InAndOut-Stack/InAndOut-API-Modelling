@@ -24,7 +24,9 @@ structure StoreSummary {
     brandSlug: Slug
 
     @required
-    brandSlug: UUID
+    storeId: UID
+
+    name: ResourceName
 
     description: Description
 
