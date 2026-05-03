@@ -11,26 +11,21 @@ use com.shopping.inandout.util#OutputPagination
 use com.shopping.inandout.util#ResourceName
 use com.shopping.inandout.util#TimeRange
 use com.shopping.inandout.util#Timezone
-use com.shopping.inandout.util#UUID
+use com.shopping.inandout.util#UID
 
 map OperatingHoursMap {
     key: DayType
     value: TimeRange
 }
 
-@references([
-    {
-        resource: Brand
-    }
-])
 structure StoreSummary {
     @required
-    storeId: UUID
-
-    name: ResourceName
+    brandSlug: Slug
 
     @required
-    brandSlug: UUID
+    storeId: UID
+
+    name: ResourceName
 
     description: Description
 

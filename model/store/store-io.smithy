@@ -13,13 +13,8 @@ use com.shopping.inandout.util#PositiveDouble
 use com.shopping.inandout.util#ResourceName
 use com.shopping.inandout.util#Slug
 use com.shopping.inandout.util#Timezone
-use com.shopping.inandout.util#UUID
+use com.shopping.inandout.util#UID
 
-@references([
-    {
-        resource: Brand
-    }
-])
 structure CreateStoreInput {
     @required
     @httpLabel
@@ -45,7 +40,7 @@ structure GetStoreInput {
 
     @required
     @httpLabel
-    storeId: UUID
+    storeId: UID
 }
 
 structure ListStoresInput with [InputPagination] {
@@ -71,11 +66,6 @@ structure ListStoresInput with [InputPagination] {
     maxDistance: PositiveDouble
 }
 
-@references([
-    {
-        resource: Brand
-    }
-])
 structure UpdateStoreInput {
     @required
     @httpLabel
@@ -83,11 +73,9 @@ structure UpdateStoreInput {
 
     @required
     @httpLabel
-    storeId: UUID
+    storeId: UID
 
     name: ResourceName
-
-    brandSlug: UUID
 
     description: Description
 
@@ -107,5 +95,5 @@ structure DeleteStoreInput {
 
     @required
     @httpLabel
-    storeId: UUID
+    storeId: UID
 }

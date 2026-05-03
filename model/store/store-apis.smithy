@@ -11,12 +11,12 @@ use com.shopping.inandout.util#ImageUrl
 use com.shopping.inandout.util#ResourceName
 use com.shopping.inandout.util#Slug
 use com.shopping.inandout.util#Timezone
-use com.shopping.inandout.util#UUID
+use com.shopping.inandout.util#UID
 
 resource Store {
     identifiers: {
         brandSlug: Slug
-        storeId: UUID
+        storeId: UID
     }
     properties: {
         name: ResourceName
