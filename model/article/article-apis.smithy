@@ -1,6 +1,6 @@
 $version: "2"
 
-namespace shopping.inandout.article
+namespace com.shopping.inandout.article
 
 use com.shopping.inandout#DeleteRestrictedError
 use com.shopping.inandout#InternalServerError
