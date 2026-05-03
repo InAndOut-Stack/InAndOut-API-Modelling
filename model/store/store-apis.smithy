@@ -18,11 +18,10 @@ use com.shopping.inandout.util#UID
 resource Store {
     identifiers: {
         brandSlug: Slug
-        storeUid: UID
+        storeId: UUID
     }
     properties: {
         name: ResourceName
-        brandSlug: UUID
         description: Description
         imageUrl: ImageUrl
         currency: Currency
@@ -35,6 +34,7 @@ resource Store {
     resources: [
         Route
         Stand
+        Offer
     ]
     create: CreateStore
     read: GetStore

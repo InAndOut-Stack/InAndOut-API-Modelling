@@ -5,12 +5,9 @@ namespace com.shopping.inandout.brand
 use com.shopping.inandout#DeleteRestrictedError
 use com.shopping.inandout#ResourceAlreadyExistsError
 use com.shopping.inandout#ResourceNotFoundError
-use com.shopping.inandout.article#Article
 use com.shopping.inandout.store#Store
-use com.shopping.inandout.util#Currency
 use com.shopping.inandout.util#ImageUrl
 use com.shopping.inandout.util#ResourceName
-use com.shopping.inandout.util#UUID
 use com.shopping.inandout.util#Slug
 
 resource Brand {
@@ -26,7 +23,6 @@ resource Brand {
     }
     resources: [
         Store
-        Article
     ]
     create: CreateBrand
     read: GetBrand

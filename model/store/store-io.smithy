@@ -17,7 +17,10 @@ use com.shopping.inandout.util#UID
 
 structure CreateStoreInput {
     @required
-    brandSlug: UUID
+    @httpLabel
+    brandSlug: Slug
+
+    name: ResourceName
 
     description: Description
 
@@ -39,7 +42,7 @@ structure GetStoreInput {
 
     @required
     @httpLabel
-    storeUid: UID
+    storeId: UUID
 }
 
 structure ListStoresInput with [InputPagination] {
@@ -72,7 +75,7 @@ structure UpdateStoreInput {
 
     @required
     @httpLabel
-    storeUid: UID
+    storeId: UUID
 
     name: ResourceName
 
@@ -98,5 +101,5 @@ structure DeleteStoreInput {
 
     @required
     @httpLabel
-    storeUid: UID
+    storeId: UUID
 }
