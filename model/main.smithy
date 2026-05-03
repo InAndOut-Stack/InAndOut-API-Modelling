@@ -3,7 +3,9 @@ $version: "2"
 namespace com.shopping.inandout
 
 use aws.protocols#restJson1
+use com.shopping.inandout.article#Article
 use com.shopping.inandout.brand#Brand
+use com.shopping.inandout.offer#Offer
 use com.shopping.inandout.route#Route
 use com.shopping.inandout.stand#Stand
 use com.shopping.inandout.store#Store
@@ -34,7 +36,9 @@ service MappingService with [InAndOut] {
 @paginated(inputToken: "nextToken", outputToken: "nextToken", pageSize: "pageSize", items: "tokens")
 service BusinessService with [InAndOut] {
     resources: [
-        Store
         Brand
+        Store
+        Article
+        Offer
     ]
 }
