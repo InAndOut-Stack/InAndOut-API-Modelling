@@ -1,18 +1,18 @@
 $version: "2"
 
-namespace com.shopping.inandout.article
+namespace shopping.inandout.article
 
-use com.shopping.inandout.util#Description
-use com.shopping.inandout.util#ImageUrl
-use com.shopping.inandout.util#OutputPagination
-use com.shopping.inandout.util#PositiveDouble
-use com.shopping.inandout.util#ResourceName
-use com.shopping.inandout.util#Slug
-use com.shopping.inandout.util#UUID
+use shopping.inandout#AuditMetadata
+use shopping.inandout#PositiveDouble
+use shopping.inandout#ResourceName
+use shopping.inandout#Timestamp
+use shopping.inandout#UUID
+use shopping.inandout.util#Price
+use shopping.inandout.util#Slug
 
 structure ProductSummary {
     @required
-    productUuid: UUID
+    productSlug: Slug
 
     @required
     name: ResourceName
@@ -48,7 +48,7 @@ structure ArticleSummary {
     productSummary: ProductSummary
 
     @required
-    defaultAmount: PositiveDouble
+    price: Price
 
     @required
     createdAt: Timestamp

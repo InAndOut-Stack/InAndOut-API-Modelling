@@ -1,12 +1,17 @@
 $version: "2"
 
-namespace com.shopping.inandout.article
+namespace shopping.inandout.article
 
-use com.shopping.inandout#DeleteRestrictedError
-use com.shopping.inandout#ResourceAlreadyExistsError
-use com.shopping.inandout#ResourceNotFoundError
-use com.shopping.inandout.util#PositiveDouble
-use com.shopping.inandout.util#Slug
+use shopping.inandout#DeleteRestrictedError
+use shopping.inandout#InternalServerError
+use shopping.inandout#InvalidInputError
+use shopping.inandout#PositiveDouble
+use shopping.inandout#ResourceAlreadyExistsError
+use shopping.inandout#ResourceNotFoundError
+use shopping.inandout#UUID
+use shopping.inandout.product#ProductSummary
+use shopping.inandout.util#Price
+use shopping.inandout.util#Slug
 
 resource Article {
     identifiers: {
@@ -16,7 +21,7 @@ resource Article {
     }
     properties: {
         productSummary: ProductSummary
-        defaultAmount: PositiveDouble
+        price: Price
         createdAt: Timestamp
         updatedAt: Timestamp
     }
@@ -33,7 +38,6 @@ operation CreateArticle {
     output: ArticleSummary
     errors: [
         ResourceAlreadyExistsError
-        ResourceNotFoundError
     ]
 }
 
@@ -53,9 +57,6 @@ operation GetArticle {
 operation ListArticles {
     input: ListArticlesInput
     output: ArticleSummaries
-    errors: [
-        ResourceNotFoundError
-    ]
 }
 
 @http(method: "PATCH", uri: "/api/brands/{brandSlug}/articles/{articleSlug}")

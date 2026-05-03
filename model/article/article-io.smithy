@@ -2,10 +2,10 @@ $version: "2"
 
 namespace com.shopping.inandout.article
 
+use com.shopping.inandout.util#Currency
 use com.shopping.inandout.util#InputPagination
 use com.shopping.inandout.util#PositiveDouble
-use com.shopping.inandout.util#ResourceName
-use com.shopping.inandout.util#Slug
+use com.shopping.inandout.util#Price
 use com.shopping.inandout.util#UUID
 
 structure CreateArticleInput {
@@ -14,11 +14,10 @@ structure CreateArticleInput {
     brandSlug: Slug
 
     @required
-    @notProperty
-    productUuid: UUID
+    productSlug: String
 
     @required
-    defaultAmount: PositiveDouble
+    price: Price
 }
 
 structure GetArticleInput {
@@ -37,22 +36,23 @@ structure ListArticlesInput with [InputPagination] {
     brandSlug: Slug
 
     @httpQuery("amount")
+    @documentation("Price amount in the currency of the article.")
     amount: PositiveDouble
 
     @httpQuery("name")
-    @documentation("Product name")
+    @documentation("Literal product name.")
     name: ResourceName
 
     @httpQuery("subcategory")
-    @documentation("Product subcategory")
+    @documentation("Literal product subcategory.")
     subcategory: ResourceName
 
     @httpQuery("category")
-    @documentation("Product category")
+    @documentation("Literal product category.")
     category: ResourceName
 
     @httpQuery("vendor")
-    @documentation("Product vendor")
+    @documentation("Literal product vendor.")
     vendor: ResourceName
 }
 
@@ -65,7 +65,7 @@ structure UpdateArticleInput {
     @httpLabel
     articleSlug: Slug
 
-    defaultAmount: PositiveDouble
+    price: Price
 }
 
 structure DeleteArticleInput {
