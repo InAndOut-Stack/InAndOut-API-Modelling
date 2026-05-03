@@ -2,9 +2,9 @@ $version: "2"
 
 namespace com.shopping.inandout.util
 
-@range(min: 0, max: 9999999999999)
+@pattern("^[a-fA-F]+$")
 @documentation("Simple identifier of a resource.")
-integer ID
+string ID
 
 list IDList {
     member: ID
