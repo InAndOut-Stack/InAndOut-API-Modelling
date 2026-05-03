@@ -11,10 +11,14 @@ use com.shopping.inandout.util#UUID
 structure CreateStandInput {
     @required
     @httpLabel
-    storeId: UUID
+    brandSlug: Slug
 
     @required
-    articleId: UUID
+    @httpLabel
+    storeId: UID
+
+    @required
+    articleSlug: Slug
 
     @required
     edgeId: UUID
@@ -27,7 +31,11 @@ structure CreateStandInput {
 structure GetStandInput {
     @required
     @httpLabel
-    storeId: UUID
+    brandSlug: Slug
+
+    @required
+    @httpLabel
+    storeId: UID
 
     @required
     @httpLabel
@@ -37,26 +45,30 @@ structure GetStandInput {
 structure ListStandsInput with [InputPagination] {
     @required
     @httpLabel
-    storeId: UUID
+    brandSlug: Slug
+
+    @required
+    @httpLabel
+    storeId: UID
 
     @httpQuery("edgeId")
-    edgeId: UUID
+    edgeId: ID
 
-    @httpQuery("articleId")
-    articleId: UUID
+    @httpQuery("name")
+    productName: ResourceName
 
-    @httpQuery("priceAmount")
-    priceAmount: PositiveDouble
-
-    @httpQuery("priceCurrency")
-    @default("RON")
-    priceCurrency: Currency
+    @httpQuery("amount")
+    amount: PositiveDouble
 }
 
 structure UpdateStandInput {
     @required
     @httpLabel
-    storeId: UUID
+    brandSlug: Slug
+
+    @required
+    @httpLabel
+    storeId: UID
 
     @required
     @httpLabel
@@ -72,7 +84,11 @@ structure UpdateStandInput {
 structure DeleteStandInput {
     @required
     @httpLabel
-    storeId: UUID
+    brandSlug: Slug
+
+    @required
+    @httpLabel
+    storeId: UID
 
     @required
     @httpLabel

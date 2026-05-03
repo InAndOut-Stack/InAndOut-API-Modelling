@@ -5,20 +5,24 @@ namespace com.shopping.inandout.stand
 use com.shopping.inandout.util#OutputPagination
 use com.shopping.inandout.util#PositiveDouble
 use com.shopping.inandout.util#Price
+use com.shopping.inandout.util#Timestamp
 use com.shopping.inandout.util#UUID
 
 structure StandSummary {
     @required
-    storeId: UUID
+    brandSlug: Slug
 
     @required
-    standId: UUID
+    storeId: UID
 
     @required
-    articleId: UUID
+    standId: ID
 
     @required
-    edgeId: UUID
+    articleSlug: Slug
+
+    @required
+    edgeId: ID
 
     price: Price
 

@@ -4,18 +4,22 @@ namespace com.shopping.inandout.stand
 
 use com.shopping.inandout#ResourceAlreadyExistsError
 use com.shopping.inandout#ResourceNotFoundError
+use com.shopping.inandout.util#ID
 use com.shopping.inandout.util#PositiveDouble
 use com.shopping.inandout.util#Price
+use com.shopping.inandout.util#Slug
+use com.shopping.inandout.util#Timestamp
 use com.shopping.inandout.util#UUID
 
 resource Stand {
     identifiers: {
-        storeId: UUID
-        standId: UUID
+        brandSlug: Slug
+        storeId: UID
+        standId: ID
     }
     properties: {
-        articleId: UUID
-        edgeId: UUID
+        articleSlug: Slug
+        edgeId: ID
         price: Price
         sourceNodeDistance: PositiveDouble
         createdAt: Timestamp
@@ -28,7 +32,7 @@ resource Stand {
     delete: DeleteStand
 }
 
-@http(method: "POST", uri: "/api/stores/{storeId}/stands")
+@http(method: "POST", uri: "/api/brands/{brandSlug}/stores/{storeId}/stands")
 operation CreateStand {
     input: CreateStandInput
     output: StandSummary
@@ -38,7 +42,7 @@ operation CreateStand {
 }
 
 @readonly
-@http(method: "GET", uri: "/api/stores/{storeId}/stands/{standId}")
+@http(method: "GET", uri: "/api/brands/{brandSlug}/stores/{storeId}/stands/{standId}")
 operation GetStand {
     input: GetStandInput
     output: StandSummary
@@ -49,7 +53,7 @@ operation GetStand {
 
 @readonly
 @paginated
-@http(method: "GET", uri: "/api/stores/{storeId}/stands")
+@http(method: "GET", uri: "/api/brands/{brandSlug}/stores/{storeId}/stands")
 operation ListStands {
     input: ListStandsInput
     output: StandSummaries

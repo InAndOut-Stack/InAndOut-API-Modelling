@@ -13,8 +13,8 @@ resource Route {
         routeId: UUID
     }
     properties: {
-        storeId: UUID
-        standIdList: UUIDList
+        storeId: UID
+        standIdList: IDList
         solutionList: SolutionList
     }
     create: CreateRoute

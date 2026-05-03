@@ -48,7 +48,7 @@ structure RouteSummary {
     routeId: UUID
 
     @required
-    storeId: UUID
+    storeId: UID
 
     @required
     @documentation("The initial input")
