@@ -23,7 +23,7 @@ structure CreateStoreInput {
     name: ResourceName
 
     @required
-    brandId: UUID
+    brandSlug: UUID
 
     description: Description
 
@@ -73,7 +73,7 @@ structure UpdateStoreInput {
 
     name: ResourceName
 
-    brandId: UUID
+    brandSlug: UUID
 
     description: Description
 

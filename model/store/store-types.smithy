@@ -30,7 +30,7 @@ structure StoreSummary {
     name: ResourceName
 
     @required
-    brandId: UUID
+    brandSlug: UUID
 
     description: Description
 

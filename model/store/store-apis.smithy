@@ -18,7 +18,7 @@ resource Store {
     }
     properties: {
         name: ResourceName
-        brandId: UUID
+        brandSlug: UUID
         description: Description
         imageUrl: ImageUrl
         geoCoordinates: GeoCoordinates
@@ -37,7 +37,7 @@ resource Store {
     delete: DeleteStore
 }
 
-@http(method: "POST", uri: "/api/stores")
+@http(method: "POST", uri: "/api/brands/{brandSlug}/stores")
 operation CreateStore {
     input: CreateStoreInput
     output: StoreSummary
@@ -47,7 +47,7 @@ operation CreateStore {
 }
 
 @readonly
-@http(method: "GET", uri: "/api/stores/{storeId}")
+@http(method: "GET", uri: "/api/brands/{brandSlug}/stores/{storeId}")
 operation GetStore {
     input: GetStoreInput
     output: StoreSummary
@@ -58,13 +58,13 @@ operation GetStore {
 
 @readonly
 @paginated
-@http(method: "GET", uri: "/api/stores")
+@http(method: "GET", uri: "/api/brands/{brandSlug}/stores")
 operation ListStores {
     input: ListStoresInput
     output: StoreSummaries
 }
 
-@http(method: "PATCH", uri: "/api/stores/{storeId}")
+@http(method: "PATCH", uri: "/api/brands/{brandSlug}/stores/{storeId}")
 operation UpdateStore {
     input: UpdateStoreInput
     output: StoreSummary
@@ -74,7 +74,7 @@ operation UpdateStore {
 }
 
 @idempotent
-@http(method: "DELETE", uri: "/api/stores/{storeId}")
+@http(method: "DELETE", uri: "/api/brands/{brandSlug}/stores/{storeId}")
 @documentation("Not restricted cascading operation, deletes floors, stands, etc.")
 operation DeleteStore {
     input: DeleteStoreInput

@@ -8,10 +8,11 @@ use com.shopping.inandout#ResourceNotFoundError
 use com.shopping.inandout.util#ImageUrl
 use com.shopping.inandout.util#ResourceName
 use com.shopping.inandout.util#UUID
+use com.shopping.inandout.util#Slug
 
 resource Brand {
     identifiers: {
-        brandId: UUID
+        brandSlug: Slug
     }
     properties: {
         name: ResourceName
@@ -35,7 +36,7 @@ operation CreateBrand {
 }
 
 @readonly
-@http(method: "GET", uri: "/api/brands/{brandId}")
+@http(method: "GET", uri: "/api/brands/{brandSlug}")
 operation GetBrand {
     input: GetBrandInput
     output: BrandSummary
@@ -44,7 +45,7 @@ operation GetBrand {
     ]
 }
 
-@http(method: "PATCH", uri: "/api/brands/{brandId}")
+@http(method: "PATCH", uri: "/api/brands/{brandSlug}")
 operation UpdateBrand {
     input: UpdateBrandInput
     output: BrandSummary
@@ -54,7 +55,7 @@ operation UpdateBrand {
 }
 
 @idempotent
-@http(method: "DELETE", uri: "/api/brands/{brandId}")
+@http(method: "DELETE", uri: "/api/brands/{brandSlug}")
 @documentation("Restricted cascading operation, references for stores and articles should NOT exist")
 operation DeleteBrand {
     input: DeleteBrandInput

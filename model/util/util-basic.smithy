@@ -2,6 +2,10 @@ $version: "2"
 
 namespace com.shopping.inandout.util
 
+@pattern("^[a-z0-9]+(?:-[a-z0-9]+)*$")
+@length(min: 3, max: 63)
+string Slug
+
 @pattern("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
 @length(min: 36, max: 36)
 string UUID
