@@ -9,16 +9,17 @@ use com.shopping.inandout.util#Description
 use com.shopping.inandout.util#GeoCoordinates
 use com.shopping.inandout.util#ImageUrl
 use com.shopping.inandout.util#ResourceName
+use com.shopping.inandout.util#Slug
 use com.shopping.inandout.util#Timezone
 use com.shopping.inandout.util#UUID
 
 resource Store {
     identifiers: {
+        brandSlug: Slug
         storeId: UUID
     }
     properties: {
         name: ResourceName
-        brandSlug: UUID
         description: Description
         imageUrl: ImageUrl
         geoCoordinates: GeoCoordinates
@@ -29,6 +30,7 @@ resource Store {
     }
     resources: [
         Stand
+        Offer
     ]
     create: CreateStore
     read: GetStore

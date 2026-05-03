@@ -11,6 +11,7 @@ use com.shopping.inandout.util#Latitude
 use com.shopping.inandout.util#Longitude
 use com.shopping.inandout.util#PositiveDouble
 use com.shopping.inandout.util#ResourceName
+use com.shopping.inandout.util#Slug
 use com.shopping.inandout.util#Timezone
 use com.shopping.inandout.util#UUID
 
@@ -20,10 +21,11 @@ use com.shopping.inandout.util#UUID
     }
 ])
 structure CreateStoreInput {
-    name: ResourceName
-
     @required
-    brandSlug: UUID
+    @httpLabel
+    brandSlug: Slug
+
+    name: ResourceName
 
     description: Description
 
@@ -39,10 +41,18 @@ structure CreateStoreInput {
 structure GetStoreInput {
     @required
     @httpLabel
+    brandSlug: Slug
+
+    @required
+    @httpLabel
     storeId: UUID
 }
 
 structure ListStoresInput with [InputPagination] {
+    @required
+    @httpLabel
+    brandSlug: Slug
+
     @httpQuery("name")
     name: ResourceName
 
@@ -69,6 +79,10 @@ structure ListStoresInput with [InputPagination] {
 structure UpdateStoreInput {
     @required
     @httpLabel
+    brandSlug: Slug
+
+    @required
+    @httpLabel
     storeId: UUID
 
     name: ResourceName
@@ -87,6 +101,10 @@ structure UpdateStoreInput {
 }
 
 structure DeleteStoreInput {
+    @required
+    @httpLabel
+    brandSlug: Slug
+
     @required
     @httpLabel
     storeId: UUID
