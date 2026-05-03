@@ -2,20 +2,20 @@ $version: "2"
 
 namespace com.shopping.inandout.offer
 
-use com.shopping.inandout#AuditMetadata
-use com.shopping.inandout#NaturalNumber
-use com.shopping.inandout#Percentage
-use com.shopping.inandout#TimeRange
-use com.shopping.inandout#UUID
-use com.shopping.inandout#UUIDList
-use com.shopping.inandout.article#Article
-use com.shopping.inandout.store#Store
+use com.shopping.inandout.util#ID
+use com.shopping.inandout.util#NaturalNumber
+use com.shopping.inandout.util#OutputPagination
+use com.shopping.inandout.util#Percentage
+use com.shopping.inandout.util#Slug
+use com.shopping.inandout.util#SlugList
+use com.shopping.inandout.util#TimeRange
+use com.shopping.inandout.util#UIDList
 
 @documentation("Product dependency; it must be bought in order for the offer to activate.")
 structure Dependency {
     @required
     articleSlug: Slug
-    
+
     quantity: NaturalNumber
 }
 
@@ -25,10 +25,10 @@ list DependencyList {
 
 structure OfferSummary {
     @required
-    brandSlug: UUID
+    brandSlug: Slug
 
     @required
-    offerId: UID
+    offerId: ID
 
     @required
     percentage: Percentage
@@ -51,7 +51,7 @@ structure OfferSummary {
 }
 
 list OfferSummaryList {
-    members: OfferSummary
+    member: OfferSummary
 }
 
 structure OfferSummaries with [OutputPagination] {

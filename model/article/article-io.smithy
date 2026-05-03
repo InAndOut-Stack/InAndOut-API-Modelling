@@ -2,11 +2,11 @@ $version: "2"
 
 namespace com.shopping.inandout.article
 
-use com.shopping.inandout.util#Currency
 use com.shopping.inandout.util#InputPagination
 use com.shopping.inandout.util#PositiveDouble
 use com.shopping.inandout.util#Price
-use com.shopping.inandout.util#UUID
+use com.shopping.inandout.util#ResourceName
+use com.shopping.inandout.util#Slug
 
 structure CreateArticleInput {
     @required
@@ -14,7 +14,7 @@ structure CreateArticleInput {
     brandSlug: Slug
 
     @required
-    productSlug: String
+    productSlug: Slug
 
     @required
     price: Price

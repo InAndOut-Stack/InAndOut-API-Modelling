@@ -2,10 +2,9 @@ $version: "2"
 
 namespace com.shopping.inandout.route
 
-use com.shopping.inandout.util#ID
 use com.shopping.inandout.util#IDList
-use com.shopping.inandout.util#Slug
 use com.shopping.inandout.util#UID
+use com.shopping.inandout.util#UUID
 
 @documentation("In between nodes navigable stand points")
 structure StandNode {

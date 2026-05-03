@@ -5,9 +5,11 @@ namespace com.shopping.inandout.stand
 use com.shopping.inandout.util#ID
 use com.shopping.inandout.util#InputPagination
 use com.shopping.inandout.util#PositiveDouble
+use com.shopping.inandout.util#Price
 use com.shopping.inandout.util#ResourceName
 use com.shopping.inandout.util#Slug
 use com.shopping.inandout.util#UID
+use com.shopping.inandout.util#UUID
 
 structure CreateStandInput {
     @required

@@ -2,13 +2,15 @@ $version: "2"
 
 namespace com.shopping.inandout.offer
 
-use com.shopping.inandout#NaturalNumber
-use com.shopping.inandout#Percentage
 use com.shopping.inandout#ResourceAlreadyExistsError
 use com.shopping.inandout#ResourceNotFoundError
-use com.shopping.inandout#TimeRange
-use com.shopping.inandout.util#UIDList
+use com.shopping.inandout.util#ID
+use com.shopping.inandout.util#NaturalNumber
+use com.shopping.inandout.util#Percentage
 use com.shopping.inandout.util#Slug
+use com.shopping.inandout.util#SlugList
+use com.shopping.inandout.util#TimeRange
+use com.shopping.inandout.util#UIDList
 
 resource Offer {
     identifiers: {

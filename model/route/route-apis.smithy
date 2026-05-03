@@ -5,8 +5,8 @@ namespace com.shopping.inandout.route
 use com.shopping.inandout#ResourceAlreadyExistsError
 use com.shopping.inandout#ResourceNotFoundError
 use com.shopping.inandout.util#IDList
-use com.shopping.inandout.util#Slug
 use com.shopping.inandout.util#UID
+use com.shopping.inandout.util#UUID
 
 @documentation("Travelling salesman problem and solution creation/retrieval")
 resource Route {
