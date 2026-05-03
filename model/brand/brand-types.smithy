@@ -9,7 +9,7 @@ use com.shopping.inandout.util#Slug
 
 structure BrandSummary {
     @required
-    brandSlug: Slug
+    brandSlug: UUID
 
     @required
     name: ResourceName

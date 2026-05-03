@@ -19,13 +19,13 @@ structure CreateBrandInput {
 structure GetBrandInput {
     @required
     @httpLabel
-    brandSlug: Slug
+    brandSlug: UUID
 }
 
 structure UpdateBrandInput {
     @required
     @httpLabel
-    brandSlug: Slug
+    brandSlug: UUID
 
     name: ResourceName
 
@@ -37,5 +37,5 @@ structure UpdateBrandInput {
 structure DeleteBrandInput {
     @required
     @httpLabel
-    brandSlug: Slug
+    brandSlug: UUID
 }

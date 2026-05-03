@@ -22,6 +22,7 @@ resource Store {
     }
     properties: {
         name: ResourceName
+        brandSlug: UUID
         description: Description
         imageUrl: ImageUrl
         currency: Currency
@@ -53,7 +54,7 @@ operation CreateStore {
 }
 
 @readonly
-@http(method: "GET", uri: "/api/brands/{brandSlug}/stores/{storeUid}")
+@http(method: "GET", uri: "/api/brands/{brandSlug}/stores/{storeId}")
 operation GetStore {
     input: GetStoreInput
     output: StoreSummary
@@ -73,7 +74,7 @@ operation ListStores {
     ]
 }
 
-@http(method: "PATCH", uri: "/api/brands/{brandSlug}/stores/{storeUid}")
+@http(method: "PATCH", uri: "/api/brands/{brandSlug}/stores/{storeId}")
 operation UpdateStore {
     input: UpdateStoreInput
     output: StoreSummary
@@ -83,7 +84,7 @@ operation UpdateStore {
 }
 
 @idempotent
-@http(method: "DELETE", uri: "/api/brands/{brandSlug}/stores/{storeUid}")
+@http(method: "DELETE", uri: "/api/brands/{brandSlug}/stores/{storeId}")
 @documentation("Not restricted cascading operation, deletes floors, stands, etc.")
 operation DeleteStore {
     input: DeleteStoreInput

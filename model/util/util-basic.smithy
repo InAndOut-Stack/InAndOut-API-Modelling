@@ -2,19 +2,9 @@ $version: "2"
 
 namespace com.shopping.inandout.util
 
-@pattern("^[0-9]+$")
-@length(min: 1)
-@documentation("Simple identifier of a resource")
-string ID
-
-list IDList {
-    member: ID
-}
-
-@pattern("^[0-9a-fA-F]{8}$")
-@length(min: 8, max: 8)
-@documentation("Unique identifier of a resource, scoped to a specific domain")
-string UID
+@pattern("^[a-z0-9]+(?:-[a-z0-9]+)*$")
+@length(min: 3, max: 63)
+string Slug
 
 @pattern("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
 @length(min: 36, max: 36)

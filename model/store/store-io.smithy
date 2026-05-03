@@ -17,10 +17,7 @@ use com.shopping.inandout.util#UID
 
 structure CreateStoreInput {
     @required
-    @httpLabel
-    brandSlug: Slug
-
-    name: ResourceName
+    brandSlug: UUID
 
     description: Description
 
@@ -78,6 +75,8 @@ structure UpdateStoreInput {
     storeUid: UID
 
     name: ResourceName
+
+    brandSlug: UUID
 
     description: Description
 
