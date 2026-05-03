@@ -1,6 +1,6 @@
 $version: "2"
 
-namespace shopping.inandout.offer
+namespace com.shopping.inandout.offer
 
 use com.shopping.inandout#NaturalNumber
 use com.shopping.inandout#Percentage
