@@ -2,14 +2,6 @@ $version: "2"
 
 namespace com.shopping.inandout.article
 
-use com.shopping.inandout#DeleteRestrictedError
-use com.shopping.inandout#InternalServerError
-use com.shopping.inandout#InvalidInputError
-use com.shopping.inandout#PositiveDouble
-use com.shopping.inandout#ResourceAlreadyExistsError
-use com.shopping.inandout#ResourceNotFoundError
-use com.shopping.inandout#UUID
-use com.shopping.inandout.product#ProductSummary
 use com.shopping.inandout.util#Price
 use com.shopping.inandout.util#Slug
 

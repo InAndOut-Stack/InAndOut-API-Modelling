@@ -2,12 +2,11 @@ $version: "2"
 
 namespace com.shopping.inandout.article
 
-use com.shopping.inandout#AuditMetadata
-use com.shopping.inandout#PositiveDouble
-use com.shopping.inandout#ResourceName
-use com.shopping.inandout#Timestamp
-use com.shopping.inandout#UUID
+use com.shopping.inandout.util#Description
+use com.shopping.inandout.util#ImageUrl
+use com.shopping.inandout.util#OutputPagination
 use com.shopping.inandout.util#Price
+use com.shopping.inandout.util#ResourceName
 use com.shopping.inandout.util#Slug
 
 structure ProductSummary {

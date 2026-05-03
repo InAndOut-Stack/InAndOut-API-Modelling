@@ -2,7 +2,6 @@ $version: "2"
 
 namespace com.shopping.inandout.store
 
-use com.shopping.inandout.brand#Brand
 use com.shopping.inandout.util#Description
 use com.shopping.inandout.util#GeoCoordinates
 use com.shopping.inandout.util#ImageUrl

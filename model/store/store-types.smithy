@@ -2,13 +2,13 @@ $version: "2"
 
 namespace com.shopping.inandout.store
 
-use com.shopping.inandout.brand#Brand
 use com.shopping.inandout.util#DayType
 use com.shopping.inandout.util#Description
 use com.shopping.inandout.util#GeoCoordinates
 use com.shopping.inandout.util#ImageUrl
 use com.shopping.inandout.util#OutputPagination
 use com.shopping.inandout.util#ResourceName
+use com.shopping.inandout.util#Slug
 use com.shopping.inandout.util#TimeRange
 use com.shopping.inandout.util#Timezone
 use com.shopping.inandout.util#UID

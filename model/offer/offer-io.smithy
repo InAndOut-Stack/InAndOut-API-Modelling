@@ -2,13 +2,16 @@ $version: "2"
 
 namespace com.shopping.inandout.offer
 
-use com.shopping.inandout#InputPagination
-use com.shopping.inandout#OutputPagination
-use com.shopping.inandout#Percentage
-use com.shopping.inandout#StoreIdMixin
-use com.shopping.inandout#UUID
+use com.shopping.inandout.util#InputPagination
+use com.shopping.inandout.util#NaturalNumber
+use com.shopping.inandout.util#Percentage
+use com.shopping.inandout.util#Slug
+use com.shopping.inandout.util#SlugList
+use com.shopping.inandout.util#TimeRange
+use com.shopping.inandout.util#UID
+use com.shopping.inandout.util#UIDList
 
-structure CreateOfferInput  {
+structure CreateOfferInput {
     @required
     @httpLabel
     brandSlug: Slug
@@ -16,13 +19,13 @@ structure CreateOfferInput  {
     @required
     percentage: Percentage
 
-    storeIdList: UUIDList
+    storeIdList: UIDList
 
     @required
     articleSlugList: SlugList
 
     dependencyList: DependencyList
-    
+
     timeRange: TimeRange
 
     @required
@@ -60,12 +63,12 @@ structure UpdateOfferInput {
 
     percentage: Percentage
 
-    storeIdList: UUIDList
+    storeIdList: UIDList
 
     articleSlugList: SlugList
 
     dependencyList: DependencyList
-    
+
     timeRange: TimeRange
 
     lifetime: NaturalNumber

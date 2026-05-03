@@ -2,8 +2,9 @@ $version: "2"
 
 namespace com.shopping.inandout.route
 
+use com.shopping.inandout.util#IDList
+use com.shopping.inandout.util#UID
 use com.shopping.inandout.util#UUID
-use com.shopping.inandout.util#UUIDList
 
 @documentation("In between nodes navigable stand points")
 structure StandNode {
@@ -52,7 +53,7 @@ structure RouteSummary {
 
     @required
     @documentation("The initial input")
-    standIdList: UUIDList
+    standIdList: IDList
 
     @documentation("Returned only if the TSP operation was finished")
     solutionList: SolutionList
