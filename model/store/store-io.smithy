@@ -2,6 +2,7 @@ $version: "2"
 
 namespace com.shopping.inandout.store
 
+use com.shopping.inandout.util#Currency
 use com.shopping.inandout.util#Description
 use com.shopping.inandout.util#GeoCoordinates
 use com.shopping.inandout.util#ImageUrl
@@ -24,6 +25,8 @@ structure CreateStoreInput {
     description: Description
 
     imageUrl: ImageUrl
+
+    currency: Currency
 
     timezone: Timezone
 
@@ -79,6 +82,8 @@ structure UpdateStoreInput {
     description: Description
 
     imageUrl: ImageUrl
+
+    currency: Currency
 
     timezone: Timezone
 

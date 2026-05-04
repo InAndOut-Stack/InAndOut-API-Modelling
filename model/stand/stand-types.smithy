@@ -5,7 +5,6 @@ namespace com.shopping.inandout.stand
 use com.shopping.inandout.util#ID
 use com.shopping.inandout.util#OutputPagination
 use com.shopping.inandout.util#PositiveDouble
-use com.shopping.inandout.util#Price
 use com.shopping.inandout.util#Slug
 use com.shopping.inandout.util#UID
 
@@ -25,7 +24,7 @@ structure StandSummary {
     @required
     edgeId: ID
 
-    price: Price
+    amount: PositiveDouble
 
     sourceNodeDistance: PositiveDouble
 

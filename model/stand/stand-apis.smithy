@@ -6,7 +6,6 @@ use com.shopping.inandout#ResourceAlreadyExistsError
 use com.shopping.inandout#ResourceNotFoundError
 use com.shopping.inandout.util#ID
 use com.shopping.inandout.util#PositiveDouble
-use com.shopping.inandout.util#Price
 use com.shopping.inandout.util#Slug
 use com.shopping.inandout.util#UID
 
@@ -19,7 +18,7 @@ resource Stand {
     properties: {
         articleSlug: Slug
         edgeId: ID
-        price: Price
+        amount: PositiveDouble
         sourceNodeDistance: PositiveDouble
         createdAt: Timestamp
         updatedAt: Timestamp
