@@ -2,7 +2,8 @@ $version: "2"
 
 namespace com.shopping.inandout.util
 
-@pattern("^[a-fA-F]+$")
+@pattern("^[0-9]+$")
+@length(min: 1)
 @documentation("Simple identifier of a resource")
 string ID
 
