@@ -6,6 +6,7 @@ use com.shopping.inandout.util#InputPagination
 use com.shopping.inandout.util#PositiveDouble
 use com.shopping.inandout.util#ResourceName
 use com.shopping.inandout.util#Slug
+use com.shopping.inandout.util#UUID
 
 structure CreateArticleInput {
     @required
@@ -14,7 +15,7 @@ structure CreateArticleInput {
 
     @required
     @notProperty
-    productSlug: Slug
+    productUuid: UUID
 
     @required
     defaultAmount: PositiveDouble

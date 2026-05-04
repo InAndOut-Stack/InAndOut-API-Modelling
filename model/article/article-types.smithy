@@ -12,7 +12,7 @@ use com.shopping.inandout.util#UUID
 
 structure ProductSummary {
     @required
-    productId: UUID
+    productUuid: UUID
 
     @required
     name: ResourceName
