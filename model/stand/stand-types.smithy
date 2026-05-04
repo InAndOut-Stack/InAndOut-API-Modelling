@@ -14,7 +14,7 @@ structure StandSummary {
     brandSlug: Slug
 
     @required
-    storeId: UID
+    storeUid: UID
 
     @required
     standId: ID

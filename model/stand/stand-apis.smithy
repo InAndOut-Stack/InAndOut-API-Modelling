@@ -13,7 +13,7 @@ use com.shopping.inandout.util#UID
 resource Stand {
     identifiers: {
         brandSlug: Slug
-        storeId: UID
+        storeUid: UID
         standId: ID
     }
     properties: {
@@ -31,7 +31,7 @@ resource Stand {
     delete: DeleteStand
 }
 
-@http(method: "POST", uri: "/api/brands/{brandSlug}/stores/{storeId}/stands")
+@http(method: "POST", uri: "/api/brands/{brandSlug}/stores/{storeUid}/stands")
 operation CreateStand {
     input: CreateStandInput
     output: StandSummary
@@ -41,7 +41,7 @@ operation CreateStand {
 }
 
 @readonly
-@http(method: "GET", uri: "/api/brands/{brandSlug}/stores/{storeId}/stands/{standId}")
+@http(method: "GET", uri: "/api/brands/{brandSlug}/stores/{storeUid}/stands/{standId}")
 operation GetStand {
     input: GetStandInput
     output: StandSummary
@@ -52,13 +52,13 @@ operation GetStand {
 
 @readonly
 @paginated
-@http(method: "GET", uri: "/api/brands/{brandSlug}/stores/{storeId}/stands")
+@http(method: "GET", uri: "/api/brands/{brandSlug}/stores/{storeUid}/stands")
 operation ListStands {
     input: ListStandsInput
     output: StandSummaries
 }
 
-@http(method: "PATCH", uri: "/api/brands/{brandSlug}/stores/{storeId}/stands/{standId}")
+@http(method: "PATCH", uri: "/api/brands/{brandSlug}/stores/{storeUid}/stands/{standId}")
 operation UpdateStand {
     input: UpdateStandInput
     output: StandSummary
@@ -68,7 +68,7 @@ operation UpdateStand {
 }
 
 @idempotent
-@http(method: "DELETE", uri: "/api/brands/{brandSlug}/stores/{storeId}/stands/{standId}")
+@http(method: "DELETE", uri: "/api/brands/{brandSlug}/stores/{storeUid}/stands/{standId}")
 operation DeleteStand {
     input: DeleteStandInput
     output: StandSummary

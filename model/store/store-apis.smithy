@@ -17,7 +17,7 @@ use com.shopping.inandout.util#UID
 resource Store {
     identifiers: {
         brandSlug: Slug
-        storeId: UID
+        storeUid: UID
     }
     properties: {
         name: ResourceName
@@ -50,7 +50,7 @@ operation CreateStore {
 }
 
 @readonly
-@http(method: "GET", uri: "/api/brands/{brandSlug}/stores/{storeId}")
+@http(method: "GET", uri: "/api/brands/{brandSlug}/stores/{storeUid}")
 operation GetStore {
     input: GetStoreInput
     output: StoreSummary
@@ -67,7 +67,7 @@ operation ListStores {
     output: StoreSummaries
 }
 
-@http(method: "PATCH", uri: "/api/brands/{brandSlug}/stores/{storeId}")
+@http(method: "PATCH", uri: "/api/brands/{brandSlug}/stores/{storeUid}")
 operation UpdateStore {
     input: UpdateStoreInput
     output: StoreSummary
@@ -77,7 +77,7 @@ operation UpdateStore {
 }
 
 @idempotent
-@http(method: "DELETE", uri: "/api/brands/{brandSlug}/stores/{storeId}")
+@http(method: "DELETE", uri: "/api/brands/{brandSlug}/stores/{storeUid}")
 @documentation("Not restricted cascading operation, deletes floors, stands, etc.")
 operation DeleteStore {
     input: DeleteStoreInput

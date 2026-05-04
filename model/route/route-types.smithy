@@ -3,13 +3,13 @@ $version: "2"
 namespace com.shopping.inandout.route
 
 use com.shopping.inandout.util#IDList
+use com.shopping.inandout.util#ID
 use com.shopping.inandout.util#UID
-use com.shopping.inandout.util#UUID
 
 @documentation("In between nodes navigable stand points")
 structure StandNode {
     @required
-    standId: UUID
+    standId: ID
 
     weight: Double
 }
@@ -20,10 +20,10 @@ list StandNodeList {
 
 structure TspEdge {
     @required
-    edgeId: UUID
+    edgeId: ID
 
     @required
-    startingNodeId: UUID
+    startingNodeId: ID
 
     standNodeList: StandNodeList
 }
@@ -46,10 +46,10 @@ list SolutionList {
 
 structure RouteSummary {
     @required
-    storeId: UID
+    storeUid: UID
 
     @required
-    routeId: UUID
+    routeUid: UID
 
     @required
     @documentation("The initial input")

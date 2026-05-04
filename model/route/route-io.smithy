@@ -3,13 +3,17 @@ $version: "2"
 namespace com.shopping.inandout.route
 
 use com.shopping.inandout.util#IDList
+use com.shopping.inandout.util#Slug
 use com.shopping.inandout.util#UID
-use com.shopping.inandout.util#UUID
 
 structure CreateRouteInput {
     @required
     @httpLabel
-    storeId: UID
+    brandSlug: Slug
+
+    @required
+    @httpLabel
+    storeUid: UID
 
     @required
     standIdList: IDList
@@ -18,19 +22,27 @@ structure CreateRouteInput {
 structure GetRouteInput {
     @required
     @httpLabel
-    storeId: UID
+    brandSlug: Slug
 
     @required
     @httpLabel
-    routeId: UUID
+    storeUid: UID
+
+    @required
+    @httpLabel
+    routeUid: UID
 }
 
 structure DeleteRouteInput {
     @required
     @httpLabel
-    storeId: UID
+    brandSlug: Slug
 
     @required
     @httpLabel
-    routeId: UUID
+    storeUid: UID
+
+    @required
+    @httpLabel
+    routeUid: UID
 }

@@ -39,19 +39,19 @@ structure ListArticlesInput with [InputPagination] {
     amount: PositiveDouble
 
     @httpQuery("name")
-    @documentation("Product name.")
+    @documentation("Product name")
     name: ResourceName
 
     @httpQuery("subcategory")
-    @documentation("Product subcategory.")
+    @documentation("Product subcategory")
     subcategory: ResourceName
 
     @httpQuery("category")
-    @documentation("Product category.")
+    @documentation("Product category")
     category: ResourceName
 
     @httpQuery("vendor")
-    @documentation("Product vendor.")
+    @documentation("Product vendor")
     vendor: ResourceName
 }
 

@@ -16,6 +16,7 @@ use com.shopping.inandout.route#Route
 use com.shopping.inandout.stand#Stand
 
 @mixin
+@restJson1
 service InAndOut {
     version: "0.0.1"
     errors: [
@@ -38,7 +39,7 @@ service MappingService with [InAndOut] {
 }
 
 @paginated(inputToken: "nextToken", outputToken: "nextToken", pageSize: "pageSize", items: "tokens")
-@documentation("Brands, Stores, Articles, Offers.")
+@documentation("Manages business resources like Brands, Stores, Articles and Offers")
 service BusinessService with [InAndOut] {
     resources: [
         Brand

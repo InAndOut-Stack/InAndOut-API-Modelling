@@ -39,7 +39,7 @@ structure GetStoreInput {
 
     @required
     @httpLabel
-    storeId: UID
+    storeUid: UID
 }
 
 structure ListStoresInput with [InputPagination] {
@@ -72,7 +72,7 @@ structure UpdateStoreInput {
 
     @required
     @httpLabel
-    storeId: UID
+    storeUid: UID
 
     name: ResourceName
 
@@ -94,5 +94,5 @@ structure DeleteStoreInput {
 
     @required
     @httpLabel
-    storeId: UID
+    storeUid: UID
 }
