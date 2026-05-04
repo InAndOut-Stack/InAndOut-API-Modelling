@@ -4,7 +4,6 @@ namespace com.shopping.inandout.article
 
 use com.shopping.inandout.util#InputPagination
 use com.shopping.inandout.util#PositiveDouble
-use com.shopping.inandout.util#Price
 use com.shopping.inandout.util#ResourceName
 use com.shopping.inandout.util#Slug
 
@@ -18,7 +17,7 @@ structure CreateArticleInput {
     productSlug: Slug
 
     @required
-    price: Price
+    defaultAmount: PositiveDouble
 }
 
 structure GetArticleInput {
@@ -37,7 +36,6 @@ structure ListArticlesInput with [InputPagination] {
     brandSlug: Slug
 
     @httpQuery("amount")
-    @documentation("Price amount in the currency of the article.")
     amount: PositiveDouble
 
     @httpQuery("name")
@@ -66,7 +64,7 @@ structure UpdateArticleInput {
     @httpLabel
     articleSlug: Slug
 
-    price: Price
+    defaultAmount: PositiveDouble
 }
 
 structure DeleteArticleInput {

@@ -5,7 +5,7 @@ namespace com.shopping.inandout.article
 use com.shopping.inandout#DeleteRestrictedError
 use com.shopping.inandout#ResourceAlreadyExistsError
 use com.shopping.inandout#ResourceNotFoundError
-use com.shopping.inandout.util#Price
+use com.shopping.inandout.util#PositiveDouble
 use com.shopping.inandout.util#Slug
 
 resource Article {
@@ -16,7 +16,7 @@ resource Article {
     }
     properties: {
         productSummary: ProductSummary
-        price: Price
+        defaultAmount: PositiveDouble
         createdAt: Timestamp
         updatedAt: Timestamp
     }
