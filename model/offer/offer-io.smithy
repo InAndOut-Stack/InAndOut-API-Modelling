@@ -2,13 +2,13 @@ $version: "2"
 
 namespace com.shopping.inandout.offer
 
+use com.shopping.inandout.util#ID
 use com.shopping.inandout.util#InputPagination
 use com.shopping.inandout.util#NaturalNumber
 use com.shopping.inandout.util#Percentage
 use com.shopping.inandout.util#Slug
 use com.shopping.inandout.util#SlugList
 use com.shopping.inandout.util#TimeRange
-use com.shopping.inandout.util#UID
 use com.shopping.inandout.util#UIDList
 
 structure CreateOfferInput {
@@ -39,17 +39,13 @@ structure GetOfferInput {
 
     @required
     @httpLabel
-    offerId: UID
+    offerId: ID
 }
 
 structure ListOffersInput with [InputPagination] {
     @required
     @httpLabel
     brandSlug: Slug
-
-    @required
-    @httpLabel
-    offerId: UID
 }
 
 structure UpdateOfferInput {
@@ -59,7 +55,7 @@ structure UpdateOfferInput {
 
     @required
     @httpLabel
-    offerId: UID
+    offerId: ID
 
     percentage: Percentage
 
@@ -81,5 +77,5 @@ structure DeleteOfferInput {
 
     @required
     @httpLabel
-    offerId: UID
+    offerId: ID
 }

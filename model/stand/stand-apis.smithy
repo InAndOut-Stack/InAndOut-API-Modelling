@@ -62,7 +62,7 @@ operation ListStands {
     ]
 }
 
-@http(method: "PATCH", uri: "/api/brands/{brandSlug}/stores/{storeUid}/stands/{standId}")
+@http(method: "PATCH", uri: "/api/brands/{brandSlug}/stores/{storeId}/stands/{standId}")
 operation UpdateStand {
     input: UpdateStandInput
     output: StandSummary
@@ -72,7 +72,7 @@ operation UpdateStand {
 }
 
 @idempotent
-@http(method: "DELETE", uri: "/api/brands/{brandSlug}/stores/{storeUid}/stands/{standId}")
+@http(method: "DELETE", uri: "/api/brands/{brandSlug}/stores/{storeId}/stands/{standId}")
 operation DeleteStand {
     input: DeleteStandInput
     output: StandSummary
