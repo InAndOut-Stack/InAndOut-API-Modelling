@@ -6,7 +6,6 @@ use com.shopping.inandout#DeleteRestrictedError
 use com.shopping.inandout#ResourceAlreadyExistsError
 use com.shopping.inandout#ResourceNotFoundError
 use com.shopping.inandout.article#Article
-use com.shopping.inandout.offer#Offer
 use com.shopping.inandout.store#Store
 use com.shopping.inandout.util#Currency
 use com.shopping.inandout.util#ImageUrl
@@ -27,7 +26,6 @@ resource Brand {
     resources: [
         Store
         Article
-        Offer
     ]
     create: CreateBrand
     read: GetBrand
