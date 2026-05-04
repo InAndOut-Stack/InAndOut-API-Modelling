@@ -35,12 +35,14 @@ structure OfferSummary {
 
     storeIdList: UIDList
 
+    @required
     articleSlugList: SlugList
 
     dependencyList: DependencyList
 
     timeRange: TimeRange
 
+    @required
     lifetime: NaturalNumber
 
     @required
