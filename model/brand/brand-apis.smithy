@@ -8,6 +8,7 @@ use com.shopping.inandout#ResourceNotFoundError
 use com.shopping.inandout.article#Article
 use com.shopping.inandout.offer#Offer
 use com.shopping.inandout.store#Store
+use com.shopping.inandout.util#Currency
 use com.shopping.inandout.util#ImageUrl
 use com.shopping.inandout.util#ResourceName
 use com.shopping.inandout.util#Slug

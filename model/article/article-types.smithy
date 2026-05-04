@@ -5,7 +5,7 @@ namespace com.shopping.inandout.article
 use com.shopping.inandout.util#Description
 use com.shopping.inandout.util#ImageUrl
 use com.shopping.inandout.util#OutputPagination
-use com.shopping.inandout.util#Price
+use com.shopping.inandout.util#PositiveDouble
 use com.shopping.inandout.util#ResourceName
 use com.shopping.inandout.util#Slug
 use com.shopping.inandout.util#UUID
@@ -48,7 +48,7 @@ structure ArticleSummary {
     productSummary: ProductSummary
 
     @required
-    price: Price
+    defaultAmount: PositiveDouble
 
     @required
     createdAt: Timestamp
