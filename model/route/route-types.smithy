@@ -46,10 +46,10 @@ list SolutionList {
 
 structure RouteSummary {
     @required
-    routeId: UUID
+    storeId: UID
 
     @required
-    storeId: UID
+    routeId: UUID
 
     @required
     @documentation("The initial input")
