@@ -5,7 +5,6 @@ namespace com.shopping.inandout.stand
 use com.shopping.inandout.util#ID
 use com.shopping.inandout.util#InputPagination
 use com.shopping.inandout.util#PositiveDouble
-use com.shopping.inandout.util#Price
 use com.shopping.inandout.util#ResourceName
 use com.shopping.inandout.util#Slug
 use com.shopping.inandout.util#UID
@@ -17,13 +16,10 @@ structure CreateStandInput {
 
     @required
     @httpLabel
-    storeId: UID
+    storeUid: UID
 
     @required
     articleSlug: Slug
-
-    @required
-    edgeId: ID
 
     @required
     edgeId: ID
@@ -40,7 +36,7 @@ structure GetStandInput {
 
     @required
     @httpLabel
-    storeId: UID
+    storeUid: UID
 
     @required
     @httpLabel
@@ -54,7 +50,7 @@ structure ListStandsInput with [InputPagination] {
 
     @required
     @httpLabel
-    storeId: UID
+    storeUid: UID
 
     @httpQuery("edgeId")
     edgeId: ID
@@ -73,13 +69,11 @@ structure UpdateStandInput {
 
     @required
     @httpLabel
-    storeId: UID
+    storeUid: UID
 
     @required
     @httpLabel
     standId: ID
-
-    edgeId: ID
 
     edgeId: ID
 
@@ -95,7 +89,7 @@ structure DeleteStandInput {
 
     @required
     @httpLabel
-    storeId: UID
+    storeUid: UID
 
     @required
     @httpLabel

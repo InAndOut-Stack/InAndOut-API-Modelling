@@ -2,6 +2,7 @@ $version: "2"
 
 namespace com.shopping.inandout.store
 
+use com.shopping.inandout.util#Currency
 use com.shopping.inandout.util#DayType
 use com.shopping.inandout.util#Description
 use com.shopping.inandout.util#GeoCoordinates
@@ -23,7 +24,7 @@ structure StoreSummary {
     brandSlug: Slug
 
     @required
-    storeId: UID
+    storeUid: UID
 
     name: ResourceName
 

@@ -33,6 +33,7 @@ operation CreateArticle {
     output: ArticleSummary
     errors: [
         ResourceAlreadyExistsError
+        ResourceNotFoundError
     ]
 }
 
@@ -52,6 +53,9 @@ operation GetArticle {
 operation ListArticles {
     input: ListArticlesInput
     output: ArticleSummaries
+    errors: [
+        ResourceNotFoundError
+    ]
 }
 
 @http(method: "PATCH", uri: "/api/brands/{brandSlug}/articles/{articleSlug}")

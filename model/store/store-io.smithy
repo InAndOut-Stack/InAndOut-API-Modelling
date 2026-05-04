@@ -2,6 +2,7 @@ $version: "2"
 
 namespace com.shopping.inandout.store
 
+use com.shopping.inandout.util#Currency
 use com.shopping.inandout.util#Description
 use com.shopping.inandout.util#GeoCoordinates
 use com.shopping.inandout.util#ImageUrl
@@ -41,7 +42,7 @@ structure GetStoreInput {
 
     @required
     @httpLabel
-    storeId: UID
+    storeUid: UID
 }
 
 structure ListStoresInput with [InputPagination] {
@@ -74,7 +75,7 @@ structure UpdateStoreInput {
 
     @required
     @httpLabel
-    storeId: UID
+    storeUid: UID
 
     name: ResourceName
 
@@ -98,5 +99,5 @@ structure DeleteStoreInput {
 
     @required
     @httpLabel
-    storeId: UID
+    storeUid: UID
 }
