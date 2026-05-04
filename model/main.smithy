@@ -8,6 +8,14 @@ metadata suppressions = [
     }
 ]
 
+metadata severityOverrides = [
+    {
+        namespace: "*"
+        id: "Model.UnresolvedTrait"
+        severity: "WARNING"
+    }
+]
+
 namespace com.shopping.inandout
 
 use aws.protocols#restJson1
