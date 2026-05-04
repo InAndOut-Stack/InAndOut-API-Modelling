@@ -14,6 +14,7 @@ structure CreateArticleInput {
     brandSlug: Slug
 
     @required
+    @notProperty
     productSlug: Slug
 
     @required

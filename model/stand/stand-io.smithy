@@ -9,7 +9,6 @@ use com.shopping.inandout.util#Price
 use com.shopping.inandout.util#ResourceName
 use com.shopping.inandout.util#Slug
 use com.shopping.inandout.util#UID
-use com.shopping.inandout.util#UUID
 
 structure CreateStandInput {
     @required
@@ -24,7 +23,7 @@ structure CreateStandInput {
     articleSlug: Slug
 
     @required
-    edgeId: UUID
+    edgeId: ID
 
     price: Price
 
@@ -42,7 +41,7 @@ structure GetStandInput {
 
     @required
     @httpLabel
-    standId: UUID
+    standId: ID
 }
 
 structure ListStandsInput with [InputPagination] {
@@ -75,9 +74,9 @@ structure UpdateStandInput {
 
     @required
     @httpLabel
-    standId: UUID
+    standId: ID
 
-    edgeId: UUID
+    edgeId: ID
 
     price: Price
 
@@ -95,5 +94,5 @@ structure DeleteStandInput {
 
     @required
     @httpLabel
-    standId: UUID
+    standId: ID
 }
