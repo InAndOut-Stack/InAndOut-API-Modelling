@@ -1,5 +1,13 @@
 $version: "2"
 
+metadata suppressions = [
+    {
+        id: "MemberShouldReferenceResource"
+        namespace: "*"
+        reason: "The Smithy validator is aggresive and incorrectly reports unrelated resource identifiers references."
+    }
+]
+
 namespace com.shopping.inandout
 
 use aws.protocols#restJson1
