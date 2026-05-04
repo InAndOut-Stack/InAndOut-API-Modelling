@@ -4,19 +4,21 @@ namespace com.shopping.inandout.stand
 
 use com.shopping.inandout#ResourceAlreadyExistsError
 use com.shopping.inandout#ResourceNotFoundError
+use com.shopping.inandout.util#ID
 use com.shopping.inandout.util#PositiveDouble
-use com.shopping.inandout.util#Price
-use com.shopping.inandout.util#UUID
+use com.shopping.inandout.util#Slug
+use com.shopping.inandout.util#UID
 
 resource Stand {
     identifiers: {
-        storeId: UUID
-        standId: UUID
+        brandSlug: Slug
+        storeUid: UID
+        standId: ID
     }
     properties: {
-        articleId: UUID
-        edgeId: UUID
-        price: Price
+        articleSlug: Slug
+        edgeId: ID
+        amount: PositiveDouble
         sourceNodeDistance: PositiveDouble
         createdAt: Timestamp
         updatedAt: Timestamp
@@ -28,17 +30,18 @@ resource Stand {
     delete: DeleteStand
 }
 
-@http(method: "POST", uri: "/api/stores/{storeId}/stands")
+@http(method: "POST", uri: "/api/brands/{brandSlug}/stores/{storeUid}/stands")
 operation CreateStand {
     input: CreateStandInput
     output: StandSummary
     errors: [
         ResourceAlreadyExistsError
+        ResourceNotFoundError
     ]
 }
 
 @readonly
-@http(method: "GET", uri: "/api/stores/{storeId}/stands/{standId}")
+@http(method: "GET", uri: "/api/brands/{brandSlug}/stores/{storeUid}/stands/{standId}")
 operation GetStand {
     input: GetStandInput
     output: StandSummary
@@ -49,13 +52,16 @@ operation GetStand {
 
 @readonly
 @paginated
-@http(method: "GET", uri: "/api/stores/{storeId}/stands")
+@http(method: "GET", uri: "/api/brands/{brandSlug}/stores/{storeUid}/stands")
 operation ListStands {
     input: ListStandsInput
     output: StandSummaries
+    errors: [
+        ResourceNotFoundError
+    ]
 }
 
-@http(method: "PATCH", uri: "/api/stores/{storeId}/stands/{standId}")
+@http(method: "PATCH", uri: "/api/brands/{brandSlug}/stores/{storeUid}/stands/{standId}")
 operation UpdateStand {
     input: UpdateStandInput
     output: StandSummary
@@ -65,7 +71,7 @@ operation UpdateStand {
 }
 
 @idempotent
-@http(method: "DELETE", uri: "/api/stores/{storeId}/stands/{standId}")
+@http(method: "DELETE", uri: "/api/brands/{brandSlug}/stores/{storeUid}/stands/{standId}")
 operation DeleteStand {
     input: DeleteStandInput
     output: StandSummary

@@ -2,30 +2,47 @@ $version: "2"
 
 namespace com.shopping.inandout.route
 
-use com.shopping.inandout.util#UUID
-use com.shopping.inandout.util#UUIDList
+use com.shopping.inandout.util#IDList
+use com.shopping.inandout.util#Slug
+use com.shopping.inandout.util#UID
 
-@references([
-    {
-        resource: "com.shopping.inandout.store#Store"
-    }
-])
 structure CreateRouteInput {
     @required
-    storeId: UUID
+    @httpLabel
+    brandSlug: Slug
 
     @required
-    standIdList: UUIDList
+    @httpLabel
+    storeUid: UID
+
+    @required
+    standIdList: IDList
 }
 
 structure GetRouteInput {
     @required
     @httpLabel
-    routeId: UUID
+    brandSlug: Slug
+
+    @required
+    @httpLabel
+    storeUid: UID
+
+    @required
+    @httpLabel
+    routeUid: UID
 }
 
 structure DeleteRouteInput {
     @required
     @httpLabel
-    routeId: UUID
+    brandSlug: Slug
+
+    @required
+    @httpLabel
+    storeUid: UID
+
+    @required
+    @httpLabel
+    routeUid: UID
 }

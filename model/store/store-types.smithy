@@ -2,39 +2,37 @@ $version: "2"
 
 namespace com.shopping.inandout.store
 
-use com.shopping.inandout.brand#Brand
+use com.shopping.inandout.util#Currency
 use com.shopping.inandout.util#DayType
 use com.shopping.inandout.util#Description
 use com.shopping.inandout.util#GeoCoordinates
 use com.shopping.inandout.util#ImageUrl
 use com.shopping.inandout.util#OutputPagination
 use com.shopping.inandout.util#ResourceName
+use com.shopping.inandout.util#Slug
 use com.shopping.inandout.util#TimeRange
 use com.shopping.inandout.util#Timezone
-use com.shopping.inandout.util#UUID
+use com.shopping.inandout.util#UID
 
 map OperatingHoursMap {
     key: DayType
     value: TimeRange
 }
 
-@references([
-    {
-        resource: Brand
-    }
-])
 structure StoreSummary {
     @required
-    storeId: UUID
-
-    name: ResourceName
+    brandSlug: Slug
 
     @required
-    brandId: UUID
+    storeUid: UID
+
+    name: ResourceName
 
     description: Description
 
     imageUrl: ImageUrl
+
+    currency: Currency
 
     geoCoordinates: GeoCoordinates
 

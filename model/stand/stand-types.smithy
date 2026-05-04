@@ -2,25 +2,29 @@ $version: "2"
 
 namespace com.shopping.inandout.stand
 
+use com.shopping.inandout.util#ID
 use com.shopping.inandout.util#OutputPagination
 use com.shopping.inandout.util#PositiveDouble
-use com.shopping.inandout.util#Price
-use com.shopping.inandout.util#UUID
+use com.shopping.inandout.util#Slug
+use com.shopping.inandout.util#UID
 
 structure StandSummary {
     @required
-    storeId: UUID
+    brandSlug: Slug
 
     @required
-    standId: UUID
+    storeUid: UID
 
     @required
-    articleId: UUID
+    standId: ID
 
     @required
-    edgeId: UUID
+    articleSlug: Slug
 
-    price: Price
+    @required
+    edgeId: ID
+
+    amount: PositiveDouble
 
     sourceNodeDistance: PositiveDouble
 

@@ -4,17 +4,19 @@ namespace com.shopping.inandout.route
 
 use com.shopping.inandout#ResourceAlreadyExistsError
 use com.shopping.inandout#ResourceNotFoundError
-use com.shopping.inandout.util#UUID
-use com.shopping.inandout.util#UUIDList
+use com.shopping.inandout.util#IDList
+use com.shopping.inandout.util#Slug
+use com.shopping.inandout.util#UID
 
 @documentation("Travelling salesman problem and solution creation/retrieval")
 resource Route {
     identifiers: {
-        routeId: UUID
+        brandSlug: Slug
+        storeUid: UID
+        routeUid: UID
     }
     properties: {
-        storeId: UUID
-        standIdList: UUIDList
+        standIdList: IDList
         solutionList: SolutionList
     }
     create: CreateRoute
@@ -22,17 +24,18 @@ resource Route {
     delete: DeleteRoute
 }
 
-@http(method: "POST", uri: "/api/routes")
+@http(method: "POST", uri: "/api/brands/{brandSlug}/stores/{storeUid}/routes")
 operation CreateRoute {
     input: CreateRouteInput
     output: RouteSummary
     errors: [
         ResourceAlreadyExistsError
+        ResourceNotFoundError
     ]
 }
 
 @readonly
-@http(method: "GET", uri: "/api/routes/{routeId}")
+@http(method: "GET", uri: "/api/brands/{brandSlug}/stores/{storeUid}/routes/{routeUid}")
 operation GetRoute {
     input: GetRouteInput
     output: RouteSummary
@@ -42,7 +45,7 @@ operation GetRoute {
 }
 
 @idempotent
-@http(method: "DELETE", uri: "/api/routes/{routeId}")
+@http(method: "DELETE", uri: "/api/brands/{brandSlug}/stores/{storeUid}/routes/{routeUid}")
 operation DeleteRoute {
     input: DeleteRouteInput
     output: RouteSummary

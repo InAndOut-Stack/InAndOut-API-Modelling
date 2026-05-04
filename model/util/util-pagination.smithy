@@ -22,6 +22,6 @@ structure OutputPagination {
     nextToken: String
 
     @required
-    @documentation("The actual number of items returned in the current response page.")
+    @documentation("The actual number of items returned in the current response page")
     tokenCount: NaturalNumber
 }

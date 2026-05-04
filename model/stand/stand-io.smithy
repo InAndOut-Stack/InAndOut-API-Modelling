@@ -2,24 +2,29 @@ $version: "2"
 
 namespace com.shopping.inandout.stand
 
-use com.shopping.inandout.util#Currency
+use com.shopping.inandout.util#ID
 use com.shopping.inandout.util#InputPagination
 use com.shopping.inandout.util#PositiveDouble
-use com.shopping.inandout.util#Price
-use com.shopping.inandout.util#UUID
+use com.shopping.inandout.util#ResourceName
+use com.shopping.inandout.util#Slug
+use com.shopping.inandout.util#UID
 
 structure CreateStandInput {
     @required
     @httpLabel
-    storeId: UUID
+    brandSlug: Slug
 
     @required
-    articleId: UUID
+    @httpLabel
+    storeUid: UID
 
     @required
-    edgeId: UUID
+    articleSlug: Slug
 
-    price: Price
+    @required
+    edgeId: ID
+
+    amount: PositiveDouble
 
     sourceNodeDistance: PositiveDouble
 }
@@ -27,44 +32,52 @@ structure CreateStandInput {
 structure GetStandInput {
     @required
     @httpLabel
-    storeId: UUID
+    brandSlug: Slug
 
     @required
     @httpLabel
-    standId: UUID
+    storeUid: UID
+
+    @required
+    @httpLabel
+    standId: ID
 }
 
 structure ListStandsInput with [InputPagination] {
     @required
     @httpLabel
-    storeId: UUID
+    brandSlug: Slug
+
+    @required
+    @httpLabel
+    storeUid: UID
 
     @httpQuery("edgeId")
-    edgeId: UUID
+    edgeId: ID
 
-    @httpQuery("articleId")
-    articleId: UUID
+    @httpQuery("name")
+    productName: ResourceName
 
-    @httpQuery("priceAmount")
-    priceAmount: PositiveDouble
-
-    @httpQuery("priceCurrency")
-    @default("RON")
-    priceCurrency: Currency
+    @httpQuery("amount")
+    amount: PositiveDouble
 }
 
 structure UpdateStandInput {
     @required
     @httpLabel
-    storeId: UUID
+    brandSlug: Slug
 
     @required
     @httpLabel
-    standId: UUID
+    storeUid: UID
 
-    edgeId: UUID
+    @required
+    @httpLabel
+    standId: ID
 
-    price: Price
+    edgeId: ID
+
+    amount: PositiveDouble
 
     sourceNodeDistance: PositiveDouble
 }
@@ -72,9 +85,13 @@ structure UpdateStandInput {
 structure DeleteStandInput {
     @required
     @httpLabel
-    storeId: UUID
+    brandSlug: Slug
 
     @required
     @httpLabel
-    standId: UUID
+    storeUid: UID
+
+    @required
+    @httpLabel
+    standId: ID
 }

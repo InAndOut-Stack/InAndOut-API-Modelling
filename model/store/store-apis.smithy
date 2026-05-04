@@ -4,23 +4,27 @@ namespace com.shopping.inandout.store
 
 use com.shopping.inandout#ResourceAlreadyExistsError
 use com.shopping.inandout#ResourceNotFoundError
+use com.shopping.inandout.route#Route
 use com.shopping.inandout.stand#Stand
+use com.shopping.inandout.util#Currency
 use com.shopping.inandout.util#Description
 use com.shopping.inandout.util#GeoCoordinates
 use com.shopping.inandout.util#ImageUrl
 use com.shopping.inandout.util#ResourceName
+use com.shopping.inandout.util#Slug
 use com.shopping.inandout.util#Timezone
-use com.shopping.inandout.util#UUID
+use com.shopping.inandout.util#UID
 
 resource Store {
     identifiers: {
-        storeId: UUID
+        brandSlug: Slug
+        storeUid: UID
     }
     properties: {
         name: ResourceName
-        brandId: UUID
         description: Description
         imageUrl: ImageUrl
+        currency: Currency
         geoCoordinates: GeoCoordinates
         operatingHoursMap: OperatingHoursMap
         timezone: Timezone
@@ -28,6 +32,7 @@ resource Store {
         updatedAt: Timestamp
     }
     resources: [
+        Route
         Stand
     ]
     create: CreateStore
@@ -37,17 +42,18 @@ resource Store {
     delete: DeleteStore
 }
 
-@http(method: "POST", uri: "/api/stores")
+@http(method: "POST", uri: "/api/brands/{brandSlug}/stores")
 operation CreateStore {
     input: CreateStoreInput
     output: StoreSummary
     errors: [
         ResourceAlreadyExistsError
+        ResourceNotFoundError
     ]
 }
 
 @readonly
-@http(method: "GET", uri: "/api/stores/{storeId}")
+@http(method: "GET", uri: "/api/brands/{brandSlug}/stores/{storeUid}")
 operation GetStore {
     input: GetStoreInput
     output: StoreSummary
@@ -58,13 +64,16 @@ operation GetStore {
 
 @readonly
 @paginated
-@http(method: "GET", uri: "/api/stores")
+@http(method: "GET", uri: "/api/brands/{brandSlug}/stores")
 operation ListStores {
     input: ListStoresInput
     output: StoreSummaries
+    errors: [
+        ResourceNotFoundError
+    ]
 }
 
-@http(method: "PATCH", uri: "/api/stores/{storeId}")
+@http(method: "PATCH", uri: "/api/brands/{brandSlug}/stores/{storeUid}")
 operation UpdateStore {
     input: UpdateStoreInput
     output: StoreSummary
@@ -74,7 +83,7 @@ operation UpdateStore {
 }
 
 @idempotent
-@http(method: "DELETE", uri: "/api/stores/{storeId}")
+@http(method: "DELETE", uri: "/api/brands/{brandSlug}/stores/{storeUid}")
 @documentation("Not restricted cascading operation, deletes floors, stands, etc.")
 operation DeleteStore {
     input: DeleteStoreInput

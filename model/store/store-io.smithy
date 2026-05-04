@@ -2,7 +2,7 @@ $version: "2"
 
 namespace com.shopping.inandout.store
 
-use com.shopping.inandout.brand#Brand
+use com.shopping.inandout.util#Currency
 use com.shopping.inandout.util#Description
 use com.shopping.inandout.util#GeoCoordinates
 use com.shopping.inandout.util#ImageUrl
@@ -11,23 +11,22 @@ use com.shopping.inandout.util#Latitude
 use com.shopping.inandout.util#Longitude
 use com.shopping.inandout.util#PositiveDouble
 use com.shopping.inandout.util#ResourceName
+use com.shopping.inandout.util#Slug
 use com.shopping.inandout.util#Timezone
-use com.shopping.inandout.util#UUID
+use com.shopping.inandout.util#UID
 
-@references([
-    {
-        resource: Brand
-    }
-])
 structure CreateStoreInput {
-    name: ResourceName
-
     @required
-    brandId: UUID
+    @httpLabel
+    brandSlug: Slug
+
+    name: ResourceName
 
     description: Description
 
     imageUrl: ImageUrl
+
+    currency: Currency
 
     timezone: Timezone
 
@@ -39,10 +38,18 @@ structure CreateStoreInput {
 structure GetStoreInput {
     @required
     @httpLabel
-    storeId: UUID
+    brandSlug: Slug
+
+    @required
+    @httpLabel
+    storeUid: UID
 }
 
 structure ListStoresInput with [InputPagination] {
+    @required
+    @httpLabel
+    brandSlug: Slug
+
     @httpQuery("name")
     name: ResourceName
 
@@ -61,23 +68,22 @@ structure ListStoresInput with [InputPagination] {
     maxDistance: PositiveDouble
 }
 
-@references([
-    {
-        resource: Brand
-    }
-])
 structure UpdateStoreInput {
     @required
     @httpLabel
-    storeId: UUID
+    brandSlug: Slug
+
+    @required
+    @httpLabel
+    storeUid: UID
 
     name: ResourceName
-
-    brandId: UUID
 
     description: Description
 
     imageUrl: ImageUrl
+
+    currency: Currency
 
     timezone: Timezone
 
@@ -89,5 +95,9 @@ structure UpdateStoreInput {
 structure DeleteStoreInput {
     @required
     @httpLabel
-    storeId: UUID
+    brandSlug: Slug
+
+    @required
+    @httpLabel
+    storeUid: UID
 }
