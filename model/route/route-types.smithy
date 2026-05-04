@@ -4,6 +4,7 @@ namespace com.shopping.inandout.route
 
 use com.shopping.inandout.util#ID
 use com.shopping.inandout.util#IDList
+use com.shopping.inandout.util#Slug
 use com.shopping.inandout.util#UID
 
 @documentation("In between nodes navigable stand points")
@@ -45,6 +46,9 @@ list SolutionList {
 }
 
 structure RouteSummary {
+    @required
+    brandSlug: Slug
+
     @required
     storeUid: UID
 
