@@ -30,6 +30,7 @@ operation CreateRoute {
     output: RouteSummary
     errors: [
         ResourceAlreadyExistsError
+        ResourceNotFoundError
     ]
 }
 

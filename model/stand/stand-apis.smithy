@@ -36,6 +36,7 @@ operation CreateStand {
     output: StandSummary
     errors: [
         ResourceAlreadyExistsError
+        ResourceNotFoundError
     ]
 }
 
@@ -55,6 +56,9 @@ operation GetStand {
 operation ListStands {
     input: ListStandsInput
     output: StandSummaries
+    errors: [
+        ResourceNotFoundError
+    ]
 }
 
 @http(method: "PATCH", uri: "/api/brands/{brandSlug}/stores/{storeUid}/stands/{standId}")

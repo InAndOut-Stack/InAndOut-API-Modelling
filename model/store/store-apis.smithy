@@ -48,6 +48,7 @@ operation CreateStore {
     output: StoreSummary
     errors: [
         ResourceAlreadyExistsError
+        ResourceNotFoundError
     ]
 }
 
@@ -67,6 +68,9 @@ operation GetStore {
 operation ListStores {
     input: ListStoresInput
     output: StoreSummaries
+    errors: [
+        ResourceNotFoundError
+    ]
 }
 
 @http(method: "PATCH", uri: "/api/brands/{brandSlug}/stores/{storeUid}")
