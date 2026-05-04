@@ -8,10 +8,11 @@ use com.shopping.inandout.util#OutputPagination
 use com.shopping.inandout.util#Price
 use com.shopping.inandout.util#ResourceName
 use com.shopping.inandout.util#Slug
+use com.shopping.inandout.util#UUID
 
 structure ProductSummary {
     @required
-    productSlug: Slug
+    productId: UUID
 
     @required
     name: ResourceName
