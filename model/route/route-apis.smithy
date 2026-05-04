@@ -11,12 +11,10 @@ use com.shopping.inandout.util#UUID
 @documentation("Travelling salesman problem and solution creation/retrieval")
 resource Route {
     identifiers: {
-        brandSlug: Slug
-        storeUid: UID
-        routeUid: UID
+        storeId: UID
+        routeId: UUID
     }
     properties: {
-        storeId: UID
         standIdList: IDList
         solutionList: SolutionList
     }
@@ -25,7 +23,7 @@ resource Route {
     delete: DeleteRoute
 }
 
-@http(method: "POST", uri: "/api/brands/{brandSlug}/stores/{storeUid}/routes")
+@http(method: "POST", uri: "/api/stores/{storeId}/routes")
 operation CreateRoute {
     input: CreateRouteInput
     output: RouteSummary
@@ -36,7 +34,7 @@ operation CreateRoute {
 }
 
 @readonly
-@http(method: "GET", uri: "/api/brands/{brandSlug}/stores/{storeUid}/routes/{routeUid}")
+@http(method: "GET", uri: "/api/stores/{storeId}/routes/{routeId}")
 operation GetRoute {
     input: GetRouteInput
     output: RouteSummary
@@ -46,7 +44,7 @@ operation GetRoute {
 }
 
 @idempotent
-@http(method: "DELETE", uri: "/api/brands/{brandSlug}/stores/{storeUid}/routes/{routeUid}")
+@http(method: "DELETE", uri: "/api/stores/{storeId}/routes/{routeId}")
 operation DeleteRoute {
     input: DeleteRouteInput
     output: RouteSummary

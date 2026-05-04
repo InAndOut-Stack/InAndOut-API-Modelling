@@ -8,6 +8,7 @@ use com.shopping.inandout.util#UUID
 
 structure CreateRouteInput {
     @required
+    @httpLabel
     storeId: UID
 
     @required
@@ -17,27 +18,19 @@ structure CreateRouteInput {
 structure GetRouteInput {
     @required
     @httpLabel
-    brandSlug: Slug
+    storeId: UID
 
     @required
     @httpLabel
-    storeUid: UID
-
-    @required
-    @httpLabel
-    routeUid: UID
+    routeId: UUID
 }
 
 structure DeleteRouteInput {
     @required
     @httpLabel
-    brandSlug: Slug
+    storeId: UID
 
     @required
     @httpLabel
-    storeUid: UID
-
-    @required
-    @httpLabel
-    routeUid: UID
+    routeId: UUID
 }
